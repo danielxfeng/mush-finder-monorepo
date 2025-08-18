@@ -11,6 +11,7 @@
     "@repo/typescript-config": "workspace:*"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest"
   }
 }

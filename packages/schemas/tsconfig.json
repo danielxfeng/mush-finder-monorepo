@@ -4,6 +4,9 @@
     "src"
   ],
   "compilerOptions": {
+    "lib": [
+      "ES2024"
+    ],
     "outDir": "dist"
   },
 }
