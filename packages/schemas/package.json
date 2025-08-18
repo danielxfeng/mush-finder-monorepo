@@ -10,14 +10,6 @@
     "zod": "^4.0.17"
   },
   "devDependencies": {
-    "typescript": "workspace:*",
-    "eslint": "workspace:*",
-    "prettier": "workspace:*",
-    "@eslint/js": "workspace:*",
-    "typescript-eslint": "workspace:*",
-    "eslint-config-prettier": "workspace:*",
-    "eslint-plugin-import": "workspace:*",
-    "eslint-import-resolver-typescript": "workspace:*",
     "@repo/typescript-config": "workspace:*"
   },
   "scripts": {
