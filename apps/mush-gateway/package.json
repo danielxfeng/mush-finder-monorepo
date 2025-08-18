@@ -1,0 +1,26 @@
+{
+  "name": "mush_finder_gateway",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "lint": "eslint . --ext .ts,.tsx,.js",
+    "format": "prettier --write .",
+    "build": "tsc",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.7.2",
+    "@repo/schemas": "workspace:*",
+    "@sentry/cloudflare": "^10.5.0",
+    "@types/node": "^24.3.0",
+    "@upstash/redis": "^1.35.3",
+    "cloudflare": "link:@upstash/redis/cloudflare",
+    "hono": "^4.9.2"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "wrangler": "^4.4.0"
+  }
+}
