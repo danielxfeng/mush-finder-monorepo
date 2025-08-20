@@ -20,6 +20,6 @@
     "typescript-eslint": "^8.40.0",
     "vitest": "^3.2.4"
   },
-  "packageManager": "pnpm@8.15.9",
+  "packageManager": "pnpm@10.15.0",
   "name": "with-vite-react"
 }
