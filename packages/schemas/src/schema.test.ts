@@ -16,30 +16,30 @@ describe('Schemas', () => {
 
   it('TaskBodySchema should pass with valid data', () => {
     const result = TaskBodySchema.safeParse({
-      pHash: validPHash,
-      imgUrl: 'https://example.com/image.png',
+      p_hash: validPHash,
+      img_url: 'https://example.com/image.png',
     });
     expect(result.success).toBe(true);
   });
 
-  it('TaskBodySchema should fail with missing pHash', () => {
+  it('TaskBodySchema should fail with missing p_hash', () => {
     const result = TaskBodySchema.safeParse({
-      imgUrl: 'https://example.com/image.png',
+      img_url: 'https://example.com/image.png',
     });
     expect(result.success).toBe(false);
   });
 
-  it('TaskBodySchema should fail with missing imgUrl', () => {
+  it('TaskBodySchema should fail with missing img_url', () => {
     const result = TaskBodySchema.safeParse({
-      pHash: validPHash,
+      p_hash: validPHash,
     });
     expect(result.success).toBe(false);
   });
 
   it('TaskBodySchema should fail with invalid URL', () => {
     const result = TaskBodySchema.safeParse({
-      pHash: validPHash,
-      imgUrl: 'not-a-url',
+      p_hash: validPHash,
+      img_url: 'not-a-url',
     });
     expect(result.success).toBe(false);
   });
@@ -105,8 +105,8 @@ describe('Schemas', () => {
     const result = HashTaskSchema.safeParse({
       status: 'processing',
       result: [{ category: 'mushroom', confidence: 0.9 }],
-      pHash: validPHash,
-      imgUrl: 'https://example.com/m.png',
+      p_hash: validPHash,
+      img_url: 'https://example.com/m.png',
       processed_at: 0,
       retry_count: 0,
     });
@@ -117,7 +117,7 @@ describe('Schemas', () => {
     const result = HashTaskSchema.safeParse({
       status: 'done',
       result: [],
-      pHash: validPHash,
+      p_hash: validPHash,
       processed_at: 0,
       retry_count: 1,
     });

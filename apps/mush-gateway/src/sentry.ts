@@ -1,9 +1,9 @@
 import * as Sentry from '@sentry/cloudflare';
 
-import app from '.';
+import app, { MyEnv } from '.';
 
 export default Sentry.withSentry(
-  (env) => ({
+  (env: MyEnv) => ({
     dsn: env.SENTRY_DSN,
     environment: env.NODE_ENV,
 

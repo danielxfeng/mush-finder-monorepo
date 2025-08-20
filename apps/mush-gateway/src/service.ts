@@ -50,7 +50,7 @@ const getTask = async (c: Ctx, p_hash: string): Promise<HashTask | null> => {
 
 const idempotentAddTask = async (c: Ctx, taskBody: TaskBody): Promise<HashTask> => {
   const r = getRedis(c);
-  const taskKey = getTaskKey(c, taskBody.pHash);
+  const taskKey = getTaskKey(c, taskBody.p_hash);
 
   const newTask: HashTask = {
     ...taskBody,
@@ -70,12 +70,12 @@ const idempotentAddTask = async (c: Ctx, taskBody: TaskBody): Promise<HashTask> 
 
     // idempotent
     if (!ok) {
-      const existingTask = await getTask(c, taskBody.pHash);
+      const existingTask = await getTask(c, taskBody.p_hash);
       if (existingTask) return existingTask;
       throw new Error('Idempotent check failed, but existing task was not found');
     }
 
-    await r.rpush(c.env.QUEUE_KEY, taskBody.pHash);
+    await r.rpush(c.env.QUEUE_KEY, taskBody.p_hash);
     return validated.data;
   } catch (error: unknown) {
     throw new HTTPException(503, {
@@ -103,4 +103,6 @@ const pingWorkers = async (c: Ctx): Promise<{ total: number; alive: number }> =>
   return { total, alive };
 };
 
-export { getTask, idempotentAddTask, pingRedis, pingWorkers };
+const isProd = (c: Ctx): boolean => c.env.NODE_ENV === 'production';
+
+export { getTask, idempotentAddTask, isProd, pingRedis, pingWorkers };

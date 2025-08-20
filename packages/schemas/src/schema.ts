@@ -19,12 +19,12 @@ const TaskStatusSchema = z.enum(['queued', 'processing', 'done', 'error', 'not_f
 //
 
 const PHashObjSchema = z.object({
-  pHash: PHashSchema,
+  p_hash: PHashSchema,
 });
 
 const TaskBodySchema = z.object({
-  pHash: PHashSchema,
-  imgUrl: imgUrlSchema,
+  p_hash: PHashSchema,
+  img_url: imgUrlSchema,
 });
 
 const TaskResultSchema = z.object({

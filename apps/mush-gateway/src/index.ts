@@ -7,7 +7,8 @@ import { logger } from 'hono/logger';
 import { timeout } from 'hono/timeout';
 
 import { HashTask, PHashSchema, TaskBodySchema, z } from '@repo/schemas';
-import { getTask, idempotentAddTask, pingRedis, pingWorkers } from './service';
+import * as Sentry from '@sentry/cloudflare';
+import { getTask, idempotentAddTask, isProd, pingRedis, pingWorkers } from './service';
 
 // env, since worker-configuration.d.ts does not work.
 interface MyEnv {
@@ -29,13 +30,19 @@ type Ctx = Context<{ Bindings: MyEnv }>;
 const app = new Hono<{ Bindings: MyEnv }>();
 
 app.use(logger());
-app.use(compress());
+
+const compression = compress();
+
+app.use('*', async (c, next) => {
+  return isProd(c) ? compression(c, next) : next();
+});
+
 app.use('/api', timeout(5000)); // 5 second timeout
 
 app.use(
   '/api/*',
   cors({
-    origin: (origin, c) => (c.env.NODE_ENV === ('production' as const) ? c.env.CORS : '*'),
+    origin: (origin, c) => (isProd(c) ? c.env.CORS : '*'),
     allowHeaders: ['X-Api-Key'],
     allowMethods: ['POST', 'GET'],
     exposeHeaders: ['Content-Length'],
@@ -67,30 +74,31 @@ app.use(
 );
 
 app.use('/api/*', async (c, next) => {
+  if (!isProd(c)) return next();
   const apiKey = c.req.header('X-Api-Key');
   if (!apiKey || apiKey !== c.env.API_KEY_FRONTEND) {
     throw new HTTPException(401, {
       message: 'Unauthorized',
     });
   }
-  await next();
+  return next();
 });
 
 app.get('/api/task/:p_hash', async (c): Promise<Response> => {
-  const p_hash = c.req.param('p_hash');
-  const validated = PHashSchema.safeParse(p_hash);
+  const pHash = c.req.param('p_hash');
+  const validated = PHashSchema.safeParse(pHash);
   if (!validated.success)
     throw new HTTPException(400, {
       message: `Invalid p_hash: ${z.prettifyError(validated.error)}`,
     });
 
-  const task = await getTask(c, p_hash);
+  const task = await getTask(c, pHash);
 
   if (task) return c.json(task);
 
   const emptyTask: HashTask = {
-    pHash: p_hash,
-    imgUrl: 'https://not_found.com',
+    p_hash: pHash,
+    img_url: 'https://not_found.com',
     status: 'not_found' as const,
     result: [],
     processed_at: 0,
@@ -113,9 +121,9 @@ app.post('/api/task', async (c): Promise<Response> => {
     });
 
   const task = validated.data;
-  if (task.imgUrl && !task.imgUrl.startsWith(c.env.IMG_URL_PREFIX))
+  if (task.img_url && !task.img_url.startsWith(c.env.IMG_URL_PREFIX))
     throw new HTTPException(400, {
-      message: `Invalid imgUrl: ${task.imgUrl}`,
+      message: `Invalid imgUrl: ${task.img_url}`,
     });
 
   const response = await idempotentAddTask(c, task);
@@ -132,6 +140,17 @@ app.notFound((c) => {
   return c.json({ error: 'Not Found' }, { status: 404 });
 });
 
+app.onError((err, c) => {
+  if (err instanceof HTTPException) {
+    const status = err.status;
+    if (status >= 500) Sentry.captureException(err);
+    return c.json({ error: err.message }, status);
+  }
+
+  Sentry.captureException(err);
+  return c.json({ error: 'Internal Server Error' }, 500);
+});
+
 export default app;
 
-export type { Ctx };
+export type { Ctx, MyEnv };
