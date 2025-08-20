@@ -1,6 +1,5 @@
 import { Context, Hono } from 'hono';
 import { bodyLimit } from 'hono/body-limit';
-import { compress } from 'hono/compress';
 import { cors } from 'hono/cors';
 import { HTTPException } from 'hono/http-exception';
 import { logger } from 'hono/logger';
@@ -30,12 +29,6 @@ type Ctx = Context<{ Bindings: MyEnv }>;
 const app = new Hono<{ Bindings: MyEnv }>();
 
 app.use(logger());
-
-const compression = compress();
-
-app.use('*', async (c, next) => {
-  return isProd(c) ? compression(c, next) : next();
-});
 
 app.use('/api', timeout(5000)); // 5 second timeout
 
