@@ -1,0 +1,37 @@
+name: CD-Gateway
+
+on:
+  push:
+    branches: ['main']
+    paths:
+      - 'apps/mush-gateway/**'
+      - 'packages/schemas/**'
+      - '.github/workflows/cd-gateway.yml'
+
+jobs:
+  deploy-mush-gateway:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./apps/mush-gateway
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Publish to Cloudflare
+        run: pnpm wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_KEY }}
