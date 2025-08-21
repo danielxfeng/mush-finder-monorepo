@@ -33,6 +33,7 @@ const TaskResultSchema = z.object({
 });
 
 const TaskResponseSchema = z.object({
+  p_hash: PHashSchema,
   status: TaskStatusSchema,
   result: z.array(TaskResultSchema),
 });

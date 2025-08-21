@@ -5,12 +5,15 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as z from 'zod';
-import { HashTaskSchema } from './src/schema';
+import { HashTaskSchema, TaskResponseSchema } from './src/schema';
 
 const outDir = new URL('./models', import.meta.url).pathname;
 fs.mkdirSync(outDir, { recursive: true });
 
-const schemas = [{ name: 'HashTask', schema: HashTaskSchema }];
+const schemas = [
+  { name: 'HashTask', schema: HashTaskSchema },
+  { name: 'TaskResponse', schema: TaskResponseSchema },
+];
 
 const generate = () => {
   schemas.forEach(({ name, schema }) => {

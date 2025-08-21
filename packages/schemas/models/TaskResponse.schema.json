@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "p_hash": {
+      "description": "Perceptual hash (64-hex) of the image",
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[A-Fa-f0-9]{64}$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "queued",
+        "processing",
+        "done",
+        "error",
+        "not_found"
+      ]
+    },
+    "result": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "description": "The category of the task",
+            "type": "string"
+          },
+          "confidence": {
+            "description": "Confidence level of the task result",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "category",
+          "confidence"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "p_hash",
+    "status",
+    "result"
+  ],
+  "additionalProperties": false
+}
