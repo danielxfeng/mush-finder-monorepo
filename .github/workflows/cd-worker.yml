@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'apps/mush-worker/**'
+      - '.github/workflows/cd-worker.yml'
 
 jobs:
   deploy-mush-worker:
@@ -18,7 +19,7 @@ jobs:
         run: |
           rsync -av apps/mush-worker/ ./deploy
           cd deploy
-          git init
+          git init -b main
           git config --global user.email "ci-bot@example.com"
           git config --global user.name "CI Bot"
           git add .
