@@ -37,12 +37,12 @@ const TaskResponseSchema = z.object({
   result: z.array(TaskResultSchema),
 });
 
-const HashTaskSchema = z.intersection(TaskResponseSchema, TaskBodySchema).and(
-  z.object({
-    processed_at: z.number().int().nonnegative().describe('Timestamp when the task was processed'),
-    retry_count: z.number().min(0).describe('Number of times the task has been retried'),
-  }),
-);
+const HashTaskSchema = z.object({
+  ...TaskBodySchema.shape,
+  ...TaskResponseSchema.shape,
+  processed_at: z.int().nonnegative().describe('Timestamp when the task was processed'),
+  retry_count: z.int().min(0).describe('Number of times the task has been retried'),
+});
 
 export {
   HashTaskSchema,
