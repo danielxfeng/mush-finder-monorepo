@@ -1,0 +1,43 @@
+name: CD-Worker
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/mush-worker/**'
+
+jobs:
+  deploy-mush-worker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Prepare deploy directory
+        run: |
+          rsync -av apps/mush-worker/ ./deploy
+          cd deploy
+          git init
+          git config --global user.email "ci-bot@example.com"
+          git config --global user.name "CI Bot"
+          git add .
+          git commit -m "Deploy mush-worker from monorepo"
+
+      - name: Push to Hugging Face Space 1
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_REPO1: ${{ secrets.HF_REPO1 }}
+        run: |
+          cd deploy
+          git remote add space1 https://username:$HF_TOKEN@huggingface.co/spaces/$HF_REPO1
+          git push --force space1 main
+
+      - name: Push to Hugging Face Space 2
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_REPO2: ${{ secrets.HF_REPO2 }}
+        run: |
+          cd deploy
+          git remote add space2 https://username:$HF_TOKEN@huggingface.co/spaces/$HF_REPO2
+          git push --force space2 main
