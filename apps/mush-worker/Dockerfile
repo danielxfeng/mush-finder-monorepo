@@ -21,7 +21,7 @@ RUN pip install --upgrade pip poetry && \
     python -m pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision && \
     poetry install --no-root --only main
 
-COPY --chown=user:user . /mush_finder
+COPY --chown=user:user . /mush_worker
 
 USER user
 
