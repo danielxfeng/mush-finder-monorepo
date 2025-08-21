@@ -34,6 +34,7 @@ types-requests = "^2.32.4.20250809"
 types-redis = "^4.6.0.20241004"
 pytest-asyncio = "^1.1.0"
 pre-commit = "^4.3.0"
+datamodel-code-generator = "^0.33.0"
 
 
 [tool.mypy]
@@ -50,13 +51,20 @@ warn_unused_ignores = true
 warn_redundant_casts = true
 warn_unreachable = true
 mypy_path = './stubs'
+exclude = "mush_worker/models/.*"
 
 [tool.isort]
 profile = 'black'
 src_paths = ['mush_worker', 'tests']
 line_length = 119
+skip = ["mush_worker/models"]
 
 [tool.black]
 line-length = 119
 target-version = ['py313']
 include = '\.pyi?$'
+exclude = '''
+(
+    /mush_worker/models/
+)
+'''

@@ -1,0 +1,1 @@
+poetry run datamodel-codegen --input ../../packages/schemas/models --input-file-type jsonschema --output ./mush_worker/models --output-model-type pydantic_v2.BaseModel --target-python-version 3.13 --use-standard-collections --disable-timestamp
