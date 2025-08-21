@@ -1,11 +1,12 @@
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 
-from mush_finder.mush_model import mush_model
-from mush_finder.redis_service import consume_task
-from mush_finder.schemas import HashTask, TaskStatus
-from mush_finder.settings import settings
-from mush_finder.utils import image_download
+from mush_worker.models.HashTask_schema import Model as HashTask
+from mush_worker.models.HashTask_schema import Status as TaskStatus
+from mush_worker.mush_model import mush_model
+from mush_worker.redis_service import consume_task
+from mush_worker.settings import settings
+from mush_worker.utils import image_download
 
 EXECUTOR = ThreadPoolExecutor(max_workers=settings.workers)
 

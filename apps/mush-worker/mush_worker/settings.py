@@ -1,5 +1,4 @@
 import os
-import uuid
 from typing import Any, Literal, Union
 
 from pydantic import AnyHttpUrl, Field, RedisDsn, field_validator
@@ -18,7 +17,6 @@ class Settings(BaseSettings):
     sentry_dsn: str = Field(..., alias="SENTRY_DSN")
 
     cors_origins: Union[list[AnyHttpUrl], Literal["*"]] = Field(..., alias="CORS_ORIGINS")
-    api_key: uuid.UUID = Field(..., alias="API_KEY")
 
     redis_url: RedisDsn = Field(..., alias="REDIS_URL")
     tasks_key: str = Field(..., alias="TASKS_KEY")

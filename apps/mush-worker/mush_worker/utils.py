@@ -3,22 +3,12 @@ import io
 import httpx
 import sentry_sdk
 from PIL import Image
-from pydantic import AnyHttpUrl
-
-from mush_finder.schemas import HashTask, TaskResponse
+from pydantic import AnyUrl
 
 _async_client = httpx.AsyncClient(follow_redirects=True, timeout=10.0)
 
 
-def adaptor_hash_task_to_response(task: HashTask) -> TaskResponse:
-    return TaskResponse(
-        p_hash=task.p_hash,
-        status=task.status,
-        result=task.result,
-    )
-
-
-async def image_download(url: AnyHttpUrl) -> Image.Image | None:
+async def image_download(url: AnyUrl) -> Image.Image | None:
     img_url = str(url).replace("/upload/", "/upload/w_224,h_224/")  # auto resize
 
     try:
@@ -35,4 +25,4 @@ async def close_httpx_client() -> None:
     await _async_client.aclose()
 
 
-__all__ = ["adaptor_hash_task_to_response", "image_download"]
+__all__ = ["image_download", "close_httpx_client"]

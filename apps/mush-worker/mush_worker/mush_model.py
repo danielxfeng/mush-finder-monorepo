@@ -6,9 +6,10 @@ import timm
 import torch
 import torchvision.transforms as transforms
 from PIL import Image
-
-from mush_finder.schemas import TaskResponse, TaskResult, TaskStatus
-from mush_finder.settings import settings
+from schema import TaskResponse
+from mush_worker.models.HashTask_schema import ResultItem as TaskResult
+from mush_worker.models.HashTask_schema import Status as TaskStatus
+from mush_worker.settings import settings
 
 CLASS_NAMES = sorted(
     [
