@@ -6,9 +6,10 @@ import timm
 import torch
 import torchvision.transforms as transforms
 from PIL import Image
-from schema import TaskResponse
-from mush_worker.models.HashTask_schema import ResultItem as TaskResult
-from mush_worker.models.HashTask_schema import Status as TaskStatus
+
+from mush_worker.models.TaskResponse_schema import Model as TaskResponse
+from mush_worker.models.TaskResponse_schema import ResultItem as TaskResult
+from mush_worker.models.TaskResponse_schema import Status as TaskStatus
 from mush_worker.settings import settings
 
 CLASS_NAMES = sorted(
@@ -48,6 +49,7 @@ class MushModel:
         self.is_warmup = False
 
         try:
+            print(settings.model_url)
             self.model = timm.create_model(settings.model_url, pretrained=True)
             self.model.to(self.device)
             self.model.eval()

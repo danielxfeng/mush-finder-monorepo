@@ -20,8 +20,8 @@ async def task_worker(hash_task: HashTask) -> HashTask:
 
     loop = asyncio.get_running_loop()
     task_result = await loop.run_in_executor(EXECUTOR, mush_model.predict, img, hash_task.p_hash)
-    hash_task.status = task_result.status
-    hash_task.result = task_result.result
+    hash_task.status = task_result.status  # type: ignore[assignment]
+    hash_task.result = task_result.result  # type: ignore[assignment]
     return hash_task
 
 

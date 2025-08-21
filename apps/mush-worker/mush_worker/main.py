@@ -3,18 +3,10 @@ from contextlib import asynccontextmanager
 from typing import AsyncGenerator, Callable
 
 import sentry_sdk
-from fastapi import (
-    FastAPI,
-    Request,
-    Response,
-)
+from fastapi import FastAPI, Request, Response
 
 from mush_worker.mush_model import mush_model
-from mush_worker.redis_service import (
-    close_redis,
-    health_check,
-    init_redis,
-)
+from mush_worker.redis_service import close_redis, health_check, init_redis
 from mush_worker.settings import settings
 from mush_worker.utils import close_httpx_client
 from mush_worker.worker import worker
@@ -46,7 +38,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 app = FastAPI(lifespan=lifespan)
 
 
-'''
+"""
 hugging face removed the cors headers
 cors_origins = (
     ["*"]
@@ -62,7 +54,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-'''
+"""
 
 
 @app.middleware("http")

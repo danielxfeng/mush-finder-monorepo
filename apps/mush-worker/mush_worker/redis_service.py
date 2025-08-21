@@ -52,6 +52,7 @@ def _validate_task(task_str: str) -> HashTask | None:
         sentry_sdk.capture_exception(e)
         return None
 
+
 TaskHandler = Callable[[HashTask], Awaitable[HashTask]]
 
 
@@ -79,7 +80,7 @@ async def consume_task(task_handler: TaskHandler) -> None:
 
         task.status = TaskStatus.processing
 
-        while (task.retry_count < settings.max_retry_count):
+        while task.retry_count < settings.max_retry_count:
             task.retry_count += 1
             task.processed_at = int(time.time())
 
