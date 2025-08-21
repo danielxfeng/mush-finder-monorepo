@@ -46,6 +46,7 @@ describe('Schemas', () => {
 
   it('TaskResponseSchema should accept valid response', () => {
     const result = TaskResponseSchema.safeParse({
+      p_hash: validPHash,
       status: 'done',
       result: [
         { category: 'mushroom', confidence: 0.95 },
@@ -57,6 +58,7 @@ describe('Schemas', () => {
 
   it('TaskResponseSchema should reject invalid confidence', () => {
     const result = TaskResponseSchema.safeParse({
+      p_hash: validPHash,
       status: 'done',
       result: [{ category: 'mushroom', confidence: 2 }],
     });
@@ -65,6 +67,7 @@ describe('Schemas', () => {
 
   it('TaskResponseSchema should reject invalid status', () => {
     const result = TaskResponseSchema.safeParse({
+      p_hash: validPHash,
       status: 'invalid-status',
       result: [{ category: 'mushroom', confidence: 0.9 }],
     });
@@ -73,6 +76,7 @@ describe('Schemas', () => {
 
   it('TaskResponseSchema should reject missing result', () => {
     const result = TaskResponseSchema.safeParse({
+      p_hash: validPHash,
       status: 'done',
     });
     expect(result.success).toBe(false);
@@ -80,6 +84,7 @@ describe('Schemas', () => {
 
   it('TaskResponseSchema should reject missing status', () => {
     const result = TaskResponseSchema.safeParse({
+      p_hash: validPHash,
       result: [{ category: 'mushroom', confidence: 0.9 }],
     });
     expect(result.success).toBe(false);
@@ -87,6 +92,7 @@ describe('Schemas', () => {
 
   it('TaskResponseSchema should reject invalid status', () => {
     const result = TaskResponseSchema.safeParse({
+      p_hash: validPHash,
       status: 'invalid-status',
       result: [{ category: 'mushroom', confidence: 0.9 }],
     });
@@ -95,6 +101,7 @@ describe('Schemas', () => {
 
   it('TaskResponseSchema should reject if result is not an array', () => {
     const result = TaskResponseSchema.safeParse({
+      p_hash: validPHash,
       status: 'done',
       result: { category: 'mushroom', confidence: 0.9 },
     });
