@@ -13,6 +13,8 @@
   "dependencies": {
     "@hono/zod-validator": "^0.7.2",
     "@repo/schemas": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@sentry/cloudflare": "^10.5.0",
     "@types/node": "^24.3.0",
     "@upstash/redis": "^1.35.3",
