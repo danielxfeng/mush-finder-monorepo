@@ -1,3 +1,2 @@
-export { z } from 'zod';
-
 export * from './schema';
+export { z } from 'zod';
