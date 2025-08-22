@@ -10,6 +10,7 @@
     "zod": "^4.0.17"
   },
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^24.3.0",
     "tsx": "^4.20.4",
@@ -18,6 +19,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "vitest run",
-    "schemas": "tsx ./generateJsonSchema.ts"
+    "schemas": "tsx ./generateJsonSchema.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   }
 }

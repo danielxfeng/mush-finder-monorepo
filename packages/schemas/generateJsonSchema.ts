@@ -4,7 +4,9 @@
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+
 import * as z from 'zod';
+
 import { HashTaskSchema, TaskResponseSchema } from './src/schema';
 
 const outDir = new URL('./models', import.meta.url).pathname;
@@ -18,7 +20,7 @@ const schemas = [
 const generate = () => {
   schemas.forEach(({ name, schema }) => {
     const jsonSchema = z.toJSONSchema(schema);
-    if (!jsonSchema || typeof jsonSchema !== 'object') {
+    if (typeof jsonSchema !== 'object') {
       throw new Error(`Failed to convert Zod schema: ${name}`);
     }
     fs.writeFileSync(path.join(outDir, `${name}.schema.json`), JSON.stringify(jsonSchema, null, 2));
