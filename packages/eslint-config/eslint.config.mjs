@@ -17,7 +17,14 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['eslint.config.*'],
+    ignores: [
+      'eslint.config.*',
+      'node_modules',
+      'dist',
+      'public',
+      'components/ui/*',
+      'components/third_party/*',
+    ],
   },
   {
     files: ['**/*.{ts,tsx}'],
@@ -28,7 +35,13 @@ export default tseslint.config(
         node: true,
       },
     },
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
     rules: {
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': 'warn',
       'import/order': [
         'warn',
         {
