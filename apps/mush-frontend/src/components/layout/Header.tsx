@@ -1,5 +1,4 @@
-import { Sun } from 'lucide-react';
-
+import ThemeToggle from '@/components/layout/ThemeToggle';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
@@ -41,12 +40,7 @@ const Header = () => {
           >
             Online
           </Button>
-          <Button
-            variant='ghost'
-            className='border-foreground bg-background hover:bg-background rounded-md px-3 py-1 text-xs backdrop-blur-sm transition duration-200 hover:shadow-[0px_0px_3px_3px_rgba(0,0,0,0.1)]'
-          >
-            <Sun />
-          </Button>
+          <ThemeToggle />
         </div>
       </div>
     </header>
