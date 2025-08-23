@@ -5,8 +5,8 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Outlet, Route, Routes, useLocation } from 'react-router';
 
 import App from '@/App.tsx';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
+import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
 import ErrorBoundary from '@/ErrorBoundary';
 
 /* eslint-disable react-refresh/only-export-components */
