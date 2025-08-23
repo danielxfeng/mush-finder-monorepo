@@ -1,9 +1,9 @@
 const Inference = () => {
   return (
-    <section>
-      <h2>Inference</h2>
-      <p>Our AI model provides real-time mushroom identification and information.</p>
-    </section>
+    <form>
+      <h2>Mushroom Inference</h2>
+      {/* Form fields for mushroom inference go here */}
+    </form>
   );
 };
 
