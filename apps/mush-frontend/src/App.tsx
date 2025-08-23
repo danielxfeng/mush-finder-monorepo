@@ -1,7 +1,13 @@
+import Disclaimer from '@/components/Disclaimer';
+import Inference from '@/components/inference/Inference';
+import Introduction from '@/components/Introduction';
+
 const App = () => {
   return (
-    <main>
-      <h2>Welcome to Mush Finder</h2>
+    <main className='flex w-full flex-1 flex-col items-center justify-center'>
+      <Introduction />
+      <Disclaimer />
+      <Inference />
     </main>
   );
 };
