@@ -45,7 +45,15 @@ const HashTaskSchema = z.object({
   retry_count: z.int().min(0).describe('Number of times the task has been retried'),
 });
 
+const FileUploadSchema = z.object({
+  img: z
+    .file()
+    .min(1)
+    .mime(['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/heic', 'image/heif']),
+});
+
 export {
+  FileUploadSchema,
   HashTaskSchema,
   PHashObjSchema,
   PHashSchema,
@@ -63,5 +71,6 @@ type PHashObj = z.infer<typeof PHashObjSchema>;
 type TaskBody = z.infer<typeof TaskBodySchema>;
 type TaskResponse = z.infer<typeof TaskResponseSchema>;
 type TaskResult = z.infer<typeof TaskResultSchema>;
+type FileUpload = z.infer<typeof FileUploadSchema>;
 
-export type { HashTask, PHashObj, TaskBody, TaskResponse, TaskResult };
+export type { FileUpload, HashTask, PHashObj, TaskBody, TaskResponse, TaskResult };
