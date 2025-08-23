@@ -11,7 +11,7 @@ interface AppModeStore {
 }
 
 const useAppModeStore = create<AppModeStore>()((set) => ({
-  mode: 'offline',
+  mode: 'online',
   toggleMode: () => {
     set((state) => ({
       mode: state.mode === 'offline' ? 'online' : 'offline',
