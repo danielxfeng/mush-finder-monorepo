@@ -31,7 +31,9 @@ const ThemeToggle = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <IconBtn>{currentTheme === 'light' ? <Sun /> : <Moon />}</IconBtn>
+        <IconBtn tooltipContent='Switch theme'>
+          {currentTheme === 'light' ? <Sun /> : <Moon />}
+        </IconBtn>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end'>
         <DropdownMenuGroup className='flex gap-2'>

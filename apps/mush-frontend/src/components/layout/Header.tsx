@@ -39,7 +39,14 @@ const Header = () => {
         </div>
 
         <div data-role='header-actions' className='flex items-center justify-center gap-2.5'>
-          <IconBtn onClick={toggleMode}>{mode === 'online' ? <Wifi /> : <WifiOff />}</IconBtn>
+          <IconBtn
+            onClick={toggleMode}
+            tooltipContent={
+              mode === 'online' ? 'Switch to offline inference' : 'Switch to online inference'
+            }
+          >
+            {mode === 'online' ? <Wifi /> : <WifiOff />}
+          </IconBtn>
           <ThemeToggle />
         </div>
       </div>
