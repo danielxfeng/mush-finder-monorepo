@@ -1,5 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&display=swap');
 @import 'tailwindcss';
-@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -122,6 +122,12 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
+@theme inline {
+  --font-inter: 'Inter', ui-sans-serif, system-ui;
+  --font-pjs: 'Plus Jakarta Sans', ui-sans-serif, system-ui;
+  --font-sg: 'Space Grotesk', monospace;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -133,5 +139,31 @@
   body,
   #root {
     @apply m-0 flex min-h-[100dvh] w-full flex-col p-0;
+  }
+  body {
+    @apply bg-background text-foreground font-inter text-base font-normal leading-normal antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-pjs;
+  }
+  h1 {
+    @apply mb-10 text-balance text-4xl font-semibold leading-tight tracking-tight drop-shadow-2xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply mb-5 text-balance text-3xl font-medium leading-tight tracking-tight lg:text-4xl;
+  }
+
+  h3 {
+    @apply mb-4 text-balance text-2xl tracking-tight max-lg:font-medium lg:text-3xl;
+  }
+
+  h4 {
+    @apply text-balance text-xl font-medium tracking-normal;
   }
 }
