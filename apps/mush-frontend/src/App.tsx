@@ -1,13 +1,11 @@
-import Disclaimer from '@/components/Disclaimer';
-import Inference from '@/components/inference/Inference';
+import InferenceEntry from '@/components/inference/InferenceEntry';
 import Introduction from '@/components/Introduction';
 
 const App = () => {
   return (
-    <main className='flex w-full flex-1 flex-col items-center justify-center'>
+    <main className='flex w-full flex-1 flex-col items-center justify-center gap-24'>
       <Introduction />
-      <Disclaimer />
-      <Inference />
+      <InferenceEntry />
     </main>
   );
 };
