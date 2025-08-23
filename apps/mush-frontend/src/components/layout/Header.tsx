@@ -1,8 +1,13 @@
+import { Wifi, WifiOff } from 'lucide-react';
+
 import ThemeToggle from '@/components/layout/ThemeToggle';
+import IconBtn from '@/components/shared/IconBtn';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import useAppModeStore from '@/lib/stores/app-mode-store';
 
 const Header = () => {
+  const { mode, toggleMode } = useAppModeStore();
+
   return (
     <header className='flex h-14 items-center justify-center'>
       <div
@@ -34,12 +39,7 @@ const Header = () => {
         </div>
 
         <div data-role='header-actions' className='flex items-center justify-center gap-2.5'>
-          <Button
-            variant='outline'
-            className='border-foreground bg-background hover:bg-background rounded-md px-3 py-1 text-xs backdrop-blur-sm transition duration-200 hover:shadow-[0px_0px_3px_3px_rgba(0,0,0,0.1)]'
-          >
-            Online
-          </Button>
+          <IconBtn onClick={toggleMode}>{mode === 'online' ? <Wifi /> : <WifiOff />}</IconBtn>
           <ThemeToggle />
         </div>
       </div>
