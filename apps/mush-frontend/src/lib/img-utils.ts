@@ -1,5 +1,7 @@
 import { imageFileResizer } from '@peacechen/react-image-file-resizer';
 
+import { taskWithTimeout } from '@/lib/timeout-util';
+
 const resizeImgWithoutTimeout = async (file: File): Promise<File> => {
   const newImage = await imageFileResizer({
     file,
@@ -16,13 +18,7 @@ const resizeImgWithoutTimeout = async (file: File): Promise<File> => {
 
 const resizeImg = async (file: File): Promise<File> => {
   // imageFileResizer doesn't return on error.
-  const timeout = new Promise<never>((_, reject) => {
-    setTimeout(() => {
-      reject(new Error('Image resize timed out'));
-    }, 10000); // 10 seconds
-  });
-
-  return Promise.race([timeout, resizeImgWithoutTimeout(file)]);
+  return await taskWithTimeout(resizeImgWithoutTimeout(file), 10000); // 10 seconds
 };
 
 const generateHash = async (file: File): Promise<string> => {
