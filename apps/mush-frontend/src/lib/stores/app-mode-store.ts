@@ -1,9 +1,5 @@
+import type { TypeAppMode } from '@repo/schemas';
 import { create } from 'zustand';
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const AppMode = ['online', 'offline'] as const;
-
-type TypeAppMode = (typeof AppMode)[number];
 
 interface AppModeStore {
   mode: TypeAppMode;
@@ -20,5 +16,3 @@ const useAppModeStore = create<AppModeStore>()((set) => ({
 }));
 
 export default useAppModeStore;
-
-export type { TypeAppMode };

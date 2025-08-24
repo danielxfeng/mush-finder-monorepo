@@ -12,6 +12,14 @@ const PHashSchema = z
 
 const imgUrlSchema = z.url().describe('URL of the image');
 
+const imgSchema = z
+  .file()
+  .min(2 * 1024)
+  .max(20 * 1024 * 1024)
+  .mime(['image/jpeg', 'image/png', 'image/webp']);
+
+const appModeSchema = z.enum(['online', 'offline']);
+
 const TaskStatusSchema = z.enum(['queued', 'processing', 'done', 'error', 'not_found']);
 
 //
@@ -45,21 +53,32 @@ const HashTaskSchema = z.object({
   retry_count: z.int().min(0).describe('Number of times the task has been retried'),
 });
 
+const ModelDbSchema = z.object({
+  id: z.uuid(),
+  model: z.instanceof(Blob),
+});
+
+const HistoryDbSchema = z.object({
+  p_hash: PHashSchema,
+  img: imgSchema,
+  mode: appModeSchema,
+  taskResponse: TaskResponseSchema,
+  createdAt: z.date().describe('Timestamp when the task was created'),
+});
+
 // HEIC/HEIF is not supported, since:
 // 1. Browsers does not preview them properly
 // 2. Hard to process on edge devices
 // 3. iOS auto converts to JPEG when we accept 'image/jpeg' only
 const FileUploadSchema = z.object({
-  img: z
-    .file()
-    .min(2 * 1024)
-    .max(20 * 1024 * 1024)
-    .mime(['image/jpeg', 'image/png', 'image/webp']),
+  img: imgSchema,
 });
 
 export {
   FileUploadSchema,
   HashTaskSchema,
+  HistoryDbSchema,
+  ModelDbSchema,
   PHashObjSchema,
   PHashSchema,
   TaskBodySchema,
@@ -77,5 +96,18 @@ type TaskBody = z.infer<typeof TaskBodySchema>;
 type TaskResponse = z.infer<typeof TaskResponseSchema>;
 type TaskResult = z.infer<typeof TaskResultSchema>;
 type FileUpload = z.infer<typeof FileUploadSchema>;
+type TypeAppMode = z.infer<typeof appModeSchema>;
+type ModelDb = z.infer<typeof ModelDbSchema>;
+type HistoryDb = z.infer<typeof HistoryDbSchema>;
 
-export type { FileUpload, HashTask, PHashObj, TaskBody, TaskResponse, TaskResult };
+export type {
+  FileUpload,
+  HashTask,
+  HistoryDb,
+  ModelDb,
+  PHashObj,
+  TaskBody,
+  TaskResponse,
+  TaskResult,
+  TypeAppMode,
+};
