@@ -3,10 +3,12 @@ import { Wifi, WifiOff } from 'lucide-react';
 import ThemeToggle from '@/components/layout/ThemeToggle';
 import IconBtn from '@/components/shared/IconBtn';
 import { Badge } from '@/components/ui/badge';
+import useAppMode from '@/lib/hooks/useAppMode';
 import useAppModeStore from '@/lib/stores/app-mode-store';
 
 const Header = () => {
-  const { mode, toggleMode } = useAppModeStore();
+  const mode = useAppMode();
+  const toggleMode = useAppModeStore.getState().toggleMode;
 
   return (
     <header className='flex h-14 items-center justify-center'>
