@@ -1,8 +1,29 @@
 const API_URL = (import.meta.env.VITE_API_URL as string | undefined) ?? 'http://localhost:8000';
+const EDGE_MODEL_URL =
+  (import.meta.env.VITE_EDGE_MODEL_URL as string | undefined) ?? 'http://localhost:8000';
 const API_KEY = (import.meta.env.VITE_API_KEY as string | undefined) ?? 'your_api_key_here';
+const CLOUDINARY_URL =
+  (import.meta.env.VITE_CLOUDINARY_URL as string | undefined) ??
+  'https://api.cloudinary.com/v1_1/YOUR_CLOUD_NAME';
+const CLOUDINARY_PRESET =
+  (import.meta.env.VITE_CLOUDINARY_PRESET as string | undefined) ?? 'ml_default';
 
-const INTRO_Title = 'Welcome to Mush Finder';
-const INTRO_TEXT =
-  'An experimental machine learning tool I trained to help identify 20 common mushroom species found in Finnish forests.';
+const MAX_HISTORY_ITEMS = 10;
+const MAX_RETRY = 2;
 
-export { API_KEY, API_URL, INTRO_TEXT, INTRO_Title };
+const MUSH = [
+  { className: 'Mushroom 1' },
+  { className: 'Mushroom 2' },
+  { className: 'Mushroom 3' },
+];
+
+export {
+  API_KEY,
+  API_URL,
+  CLOUDINARY_PRESET,
+  CLOUDINARY_URL,
+  EDGE_MODEL_URL,
+  MAX_HISTORY_ITEMS,
+  MAX_RETRY,
+  MUSH,
+};
