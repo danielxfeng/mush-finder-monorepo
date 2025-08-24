@@ -27,6 +27,7 @@
     "dexie": "^4.2.0",
     "lucide-react": "^0.539.0",
     "motion": "^12.23.12",
+    "onnxruntime-web": "^1.22.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.62.0",

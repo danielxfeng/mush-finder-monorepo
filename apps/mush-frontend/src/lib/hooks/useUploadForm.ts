@@ -8,11 +8,10 @@ import {
 } from '@repo/schemas';
 import { useForm } from 'react-hook-form';
 
+import { generateHash, resizeImg } from '@/lib/img-utils';
+import { putAndGetHistoryDb } from '@/lib/indexed-db-helper';
+import InferenceEngineFactory from '@/lib/inference-engine/inference-interface';
 import useAppModeStore from '@/lib/stores/app-mode-store';
-
-import { generateHash, resizeImg } from '../img-utils';
-import { putAndGetHistoryDb } from '../indexed-db-helper';
-import InferenceEngineFactory from '../inference-engine/inference-interface';
 
 const useUploadForm = () => {
   const mode = useAppModeStore((state) => state.mode);
