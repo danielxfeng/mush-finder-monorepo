@@ -58,12 +58,17 @@ const waitForNext = async (retry: number): Promise<void> => {
 };
 
 // Get result with auto-retry
-const getInferenceResultWithoutTimeout = async (hashTask: HashTask): Promise<HashTask> => {
+const getInferenceResultWithoutTimeout = async (
+  hashTask: HashTask,
+  signal?: AbortSignal,
+): Promise<HashTask> => {
   let task = hashTask;
   let retry = 0;
 
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   while (true) {
+    if (signal?.aborted)
+      throw new Error(`Aborted by signal: hash: ${task.p_hash}, status: ${task.status}`);
     if (task.status === 'done' || task.status === 'not_found') return task;
     const isError = task.status === 'error' && task.retry_count >= MAX_RETRY;
     if (isError) return task;
@@ -94,7 +99,10 @@ const getInferenceResultWithoutTimeout = async (hashTask: HashTask): Promise<Has
 };
 
 const getInferenceResult = async (hashTask: HashTask): Promise<HashTask> => {
-  return await taskWithTimeout(getInferenceResultWithoutTimeout(hashTask), 60000); // 60 seconds
+  return await taskWithTimeout(
+    (signal) => getInferenceResultWithoutTimeout(hashTask, signal),
+    3 * 60000, // 3 minutes
+  );
 };
 
 const onlineInference = async (hash: string, file: File): Promise<HashTask> => {
