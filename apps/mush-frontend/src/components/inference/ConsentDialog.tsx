@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import CtaBtn from '@/components/shared/CtaBtn';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import {
@@ -49,7 +50,7 @@ const ConsentDialog = ({ setConsent }: ConsentDialogProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className='rounded-full px-12 py-6 text-xl'>Start</Button>
+        <CtaBtn>Start</CtaBtn>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
