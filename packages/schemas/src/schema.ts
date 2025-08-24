@@ -45,11 +45,16 @@ const HashTaskSchema = z.object({
   retry_count: z.int().min(0).describe('Number of times the task has been retried'),
 });
 
+// HEIC/HEIF is not supported, since:
+// 1. Browsers does not preview them properly
+// 2. Hard to process on edge devices
+// 3. iOS auto converts to JPEG when we accept 'image/jpeg' only
 const FileUploadSchema = z.object({
   img: z
     .file()
-    .min(1)
-    .mime(['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/heic', 'image/heif']),
+    .min(2 * 1024)
+    .max(20 * 1024 * 1024)
+    .mime(['image/jpeg', 'image/png', 'image/webp']),
 });
 
 export {
