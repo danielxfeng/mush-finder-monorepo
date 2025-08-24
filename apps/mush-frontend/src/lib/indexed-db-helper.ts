@@ -40,6 +40,11 @@ const getModelDb = async (): Promise<Blob | null> => {
   }
 };
 
+const hasModel = async (): Promise<boolean> => {
+  const total = await db.model.count();
+  return total > 0;
+};
+
 const putModelDb = async (data: ModelDb): Promise<void> => {
   const validatedDate = ModelDbSchema.safeParse(data);
   if (!validatedDate.success) {
@@ -106,6 +111,7 @@ export {
   deleteFromHistoryDb,
   getHistoryDb,
   getModelDb,
+  hasModel,
   putAndGetHistoryDb,
   putModelDb,
 };
