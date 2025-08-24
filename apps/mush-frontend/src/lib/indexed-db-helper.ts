@@ -1,4 +1,5 @@
 import { type HistoryDb, HistoryDbSchema, type ModelDb, ModelDbSchema, z } from '@repo/schemas';
+// eslint-disable-next-line import/no-named-as-default
 import Dexie, { type EntityTable } from 'dexie';
 
 import { MAX_HISTORY_ITEMS } from '@/constants/constants';
