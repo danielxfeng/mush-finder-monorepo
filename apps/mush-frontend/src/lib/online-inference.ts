@@ -69,6 +69,7 @@ const getInferenceResultWithoutTimeout = async (
   while (true) {
     if (signal?.aborted)
       throw new Error(`Aborted by signal: hash: ${task.p_hash}, status: ${task.status}`);
+
     if (task.status === 'done' || task.status === 'not_found') return task;
     const isError = task.status === 'error' && task.retry_count >= MAX_RETRY;
     if (isError) return task;
@@ -81,6 +82,7 @@ const getInferenceResultWithoutTimeout = async (
       const validated = HashTaskSchema.safeParse(res.data);
       if (!validated.success)
         throw new Error(`Invalid response data: ${z.prettifyError(validated.error)}`);
+
       task = validated.data;
       continue;
     } catch (error) {
