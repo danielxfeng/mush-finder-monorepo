@@ -33,12 +33,13 @@ const Disclaimer = () => {
   );
 };
 
-interface ConsentDialogProps {
-  setConsent: (value: boolean) => void;
+interface ConsentGuardProps {
+  children: React.ReactNode;
 }
 
-const ConsentDialog = ({ setConsent }: ConsentDialogProps) => {
+const ConsentGuard = ({ children }: ConsentGuardProps) => {
   const { skipDisclaimer, setSkipDisclaimer } = useDisclaimerStore();
+  const [consent, setConsent] = useState(skipDisclaimer);
   const [skipDisclaimerChecked, setSkipDisclaimerChecked] = useState(skipDisclaimer);
   const handleConsent = (accepted: boolean) => {
     setConsent(accepted);
@@ -46,6 +47,8 @@ const ConsentDialog = ({ setConsent }: ConsentDialogProps) => {
       setSkipDisclaimer(true);
     }
   };
+
+  if (consent) return <>{children}</>;
 
   return (
     <Dialog>
@@ -105,4 +108,4 @@ const ConsentDialog = ({ setConsent }: ConsentDialogProps) => {
   );
 };
 
-export default ConsentDialog;
+export default ConsentGuard;
