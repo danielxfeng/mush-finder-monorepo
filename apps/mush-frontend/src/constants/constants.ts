@@ -11,10 +11,32 @@ const CLOUDINARY_PRESET =
 const MAX_HISTORY_ITEMS = 10;
 const MAX_RETRY = 2;
 
-const MUSH = [
-  { className: 'Mushroom 1' },
-  { className: 'Mushroom 2' },
-  { className: 'Mushroom 3' },
+interface MushItem {
+  className: string;
+  English: string;
+  Finnish: string;
+  description: string;
+}
+
+const MUSH: MushItem[] = [
+  {
+    className: 'Mushroom 1',
+    English: 'Mushroom 1',
+    Finnish: 'Sieni 1',
+    description: 'This is Mushroom 1',
+  },
+  {
+    className: 'Mushroom 2',
+    English: 'Mushroom 2',
+    Finnish: 'Sieni 2',
+    description: 'This is Mushroom 2',
+  },
+  {
+    className: 'Mushroom 3',
+    English: 'Mushroom 3',
+    Finnish: 'Sieni 3',
+    description: 'This is Mushroom 3',
+  },
 ];
 
 export {
