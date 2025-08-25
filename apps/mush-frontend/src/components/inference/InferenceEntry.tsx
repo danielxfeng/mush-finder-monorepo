@@ -1,8 +1,76 @@
-import { useState } from 'react';
+import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
+import { toast } from 'sonner';
 
 import ConsentDialog from '@/components/inference/ConsentDialog';
 import Inference from '@/components/inference/Inference';
+import Loading from '@/components/shared/Loading';
+import { Button } from '@/components/ui/button';
+import { hasModel, putModelDb } from '@/lib/indexed-db-helper';
+import { downloadEdgeModel } from '@/lib/inference-engine/offline-inference';
+import useAppModeStore from '@/lib/stores/app-mode-store';
 import useDisclaimerStore from '@/lib/stores/disclaimer-store';
+
+interface NoModelProps {
+  setCheck: Dispatch<SetStateAction<boolean | null>>;
+}
+
+const NoModel = ({ setCheck }: NoModelProps) => {
+  const [loading, setLoading] = useState(false);
+
+  const downloadModelHandler = async () => {
+    try {
+      setLoading(true);
+      const blob = await downloadEdgeModel();
+      await putModelDb({ id: 'edge-model', model: blob });
+      setCheck(true);
+    } catch {
+      // Sentry.captureException(error);
+      toast.error('Failed to download the model. Please try later.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) return <Loading />;
+
+  return (
+    <div
+      data-role='offline-no-model'
+      className='flex w-full flex-col items-center justify-center gap-6 px-4'
+    >
+      <Button onClick={() => void downloadModelHandler()} disabled={loading}>
+        Download
+      </Button>
+      <p className='text-muted-foreground text-center'>
+        To use offline inference, you need to download the model to the device first.
+      </p>
+    </div>
+  );
+};
+
+interface EdgeModelGuardProps {
+  children: React.ReactNode;
+}
+
+const EdgeModelGuard = ({ children }: EdgeModelGuardProps) => {
+  const mode = useAppModeStore((state) => state.mode);
+  const [check, setCheck] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    if (mode === 'online') {
+      setCheck(true);
+      return;
+    }
+
+    hasModel()
+      .then(setCheck)
+      .catch(() => {
+        setCheck(false);
+      });
+  }, [mode]);
+
+  return check === null ? <Loading /> : check ? <>{children}</> : <NoModel setCheck={setCheck} />;
+};
 
 const InferenceEntry = () => {
   const skipDisclaimer = useDisclaimerStore((state) => {
@@ -11,7 +79,13 @@ const InferenceEntry = () => {
 
   const [consent, setConsent] = useState(skipDisclaimer);
 
-  return consent ? <Inference /> : <ConsentDialog setConsent={setConsent} />;
+  return consent ? (
+    <EdgeModelGuard>
+      <Inference />
+    </EdgeModelGuard>
+  ) : (
+    <ConsentDialog setConsent={setConsent} />
+  );
 };
 
 export default InferenceEntry;

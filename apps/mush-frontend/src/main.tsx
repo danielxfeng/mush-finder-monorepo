@@ -7,6 +7,7 @@ import { BrowserRouter, Outlet, Route, Routes, useLocation } from 'react-router'
 import App from '@/App.tsx';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
+import { Toaster } from '@/components/ui/sonner';
 import ErrorBoundary from '@/ErrorBoundary';
 
 /* eslint-disable react-refresh/only-export-components */
@@ -22,6 +23,7 @@ const Layout = () => {
       <Header />
       <Outlet />
       <Footer />
+      <Toaster position='top-center' duration={3000} richColors />
     </>
   );
 };
