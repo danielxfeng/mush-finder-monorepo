@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { MUSH } from '@/constants/constants';
 import useOutsideClick from '@/lib/hooks/useOutsideClick';
 import { deleteFromHistoryDb } from '@/lib/indexed-db-helper';
+import { cn } from '@/lib/utils';
 
 interface ResultCardProps {
   result: TaskResponse | null;
@@ -46,7 +47,11 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
           exit={{ opacity: 0, scale: 0.2 }}
           transition={{ duration: 0.7 }}
           data-set='task-result'
-          className='border-foreground relative flex w-full flex-col items-center justify-center gap-2 rounded-xl border p-4 lg:w-fit'
+          className={cn(
+            'border-foreground relative flex w-full flex-col items-center justify-center gap-2 rounded-xl border p-4 lg:w-fit',
+            dbKey &&
+              'bg-background/75 button absolute bottom-0 left-1/2 z-20 -translate-x-1/2 backdrop-blur-md',
+          )}
         >
           <h4 className='my-4'>The Inference Result:</h4>
           <div
