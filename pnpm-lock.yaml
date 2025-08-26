@@ -86,7 +86,7 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: ^0.7.2
-        version: 0.7.2(hono@4.9.2)(zod@4.0.17)
+        version: 0.7.2(hono@4.9.2)(zod@4.1.3)
       '@repo/schemas':
         specifier: workspace:*
         version: link:../../packages/schemas
@@ -119,7 +119,7 @@ importers:
     dependencies:
       zod:
         specifier: ^4.0.17
-        version: 4.0.17
+        version: 4.1.3
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*
@@ -2651,8 +2651,8 @@ packages:
   zod@3.22.3:
     resolution: {integrity: sha512-EjIevzuJRiRPbVH4mGc8nApb/lVLKVpmUhAaR5R5doKGfAnGJ6Gr3CViAVjP+4FWSxCsybeWQdcgCtbX+7oZug==}
 
-  zod@4.0.17:
-    resolution: {integrity: sha512-1PHjlYRevNxxdy2JZ8JcNAw7rX8V9P1AKkP+x/xZfxB0K5FYfuV+Ug6P/6NVSR2jHQ+FzDDoDHS04nYUsOIyLQ==}
+  zod@4.1.3:
+    resolution: {integrity: sha512-1neef4bMce1hNTrxvHVKxWjKfGDn0oAli3Wy1Uwb7TRO1+wEwoZUZNP1NXIEESybOBiFnBOhI6a4m6tCLE8dog==}
 
 snapshots:
 
@@ -3017,10 +3017,10 @@ snapshots:
       '@eslint/core': 0.15.2
       levn: 0.4.1
 
-  '@hono/zod-validator@0.7.2(hono@4.9.2)(zod@4.0.17)':
+  '@hono/zod-validator@0.7.2(hono@4.9.2)(zod@4.1.3)':
     dependencies:
       hono: 4.9.2
-      zod: 4.0.17
+      zod: 4.1.3
 
   '@humanfs/core@0.19.1': {}
 
@@ -5232,4 +5232,4 @@ snapshots:
 
   zod@3.22.3: {}
 
-  zod@4.0.17: {}
+  zod@4.1.3: {}
