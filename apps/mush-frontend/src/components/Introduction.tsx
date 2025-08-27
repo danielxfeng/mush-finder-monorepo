@@ -12,13 +12,11 @@ const items = [
     Powered by a custom transfer learning model built on Facebook&apos;s ConvNeXt family of CNNs.
   </p>,
   <p>
-    <p>
-      The model was trained on over 10,000 mushroom images gathered through{' '}
-      <a href='https://www.gbif.org' target='_blank' rel='noopener noreferrer'>
-        GBIF
-      </a>
-      , with photos contributed under CC licenses.
-    </p>
+    The model was trained on over 10,000 mushroom images gathered through{' '}
+    <a href='https://www.gbif.org' target='_blank' rel='noopener noreferrer'>
+      GBIF
+    </a>
+    , with photos contributed under CC licenses.
   </p>,
   <p>
     MushFinder comes in two versions: an online model with higher accuracy, and an offline edge
