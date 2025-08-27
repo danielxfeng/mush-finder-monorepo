@@ -48,15 +48,16 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
           transition={{ duration: 0.7 }}
           data-set='task-result'
           className={cn(
-            'border-foreground relative flex w-full flex-col items-center justify-center gap-2 rounded-xl border p-4 lg:w-fit',
-            dbKey &&
-              'bg-background/75 button absolute bottom-0 left-1/2 z-20 -translate-x-1/2 backdrop-blur-md',
+            'border-foreground lg:w-xl relative flex w-full flex-col items-center justify-center gap-2 rounded-xl border p-2 lg:p-4',
+            dbKey && 'bg-background/70 fixed top-1/2 z-20 -translate-y-1/2 backdrop-blur-md',
+            dbKey && 'lg:absolute lg:inset-auto lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2',
           )}
         >
-          <h4 className='my-4'>The Inference Result:</h4>
+          <h4>The Inference Result:</h4>
+          <p className='text-muted-foreground mb-1 text-xs'>⚠️ Information may be inaccurate</p>
           <div
             data-set='task-result-content'
-            className='divide-border lg:divide-x-1 divide-y-1 flex flex-col items-center justify-center divide-x-0 lg:flex-row lg:divide-y-0'
+            className='divide-border grid w-full grid-cols-1 divide-y lg:grid-cols-3 lg:divide-x lg:divide-y-0'
           >
             {result.result.map((item) => {
               const mushItem = MUSH.find((m) => m.className === item.category);
@@ -64,37 +65,28 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
               return (
                 <div
                   key={item.category}
-                  className='flex flex-col items-center justify-center gap-4 p-4 lg:flex-row'
+                  className='flex w-full flex-1 flex-col items-center justify-center gap-1 p-2 lg:flex-row'
                 >
                   <div
                     data-role='task-result-item'
-                    className='flex flex-col items-center justify-center gap-1.5'
+                    className='grid w-full grid-cols-2 gap-1 lg:grid-cols-1'
                   >
-                    <h5 className='mb-2'>{item.category}</h5>
-                    <p className='font-bold'>{`${(item.confidence * 100).toFixed(2)}%`}</p>
-                    <p className='text-muted-foreground flex items-center justify-center gap-2 text-sm'>
-                      <span className='italic'>{mushItem?.English}</span>
-                      <span>|</span>
-                      <span className='italic'>{mushItem?.Finnish}</span>
+                    <p className='mb-1 flex w-full items-center justify-center'>{item.category}</p>
+                    <p className='mb-1 flex w-full items-center justify-center'>{`${(item.confidence * 100).toFixed(2)}%`}</p>
+                    <p className='text-muted-foreground flex w-full items-center justify-center gap-1.5 text-sm italic'>
+                      {mushItem?.English}
                     </p>
-                    <p className='text-muted-foreground text-xs'>{mushItem?.description}</p>
+                    <p className='text-muted-foreground flex w-full items-center justify-center gap-1.5 text-sm italic'>
+                      {mushItem?.Finnish}
+                    </p>
+                    <p className='text-muted-foreground col-span-2 flex w-full items-center justify-center text-xs lg:col-span-1'>
+                      {mushItem?.description}
+                    </p>
                   </div>
                 </div>
               );
             })}
           </div>
-          {dbKey && (
-            <button
-              className='absolute right-4 top-2 lg:hidden'
-              aria-label='Close'
-              onClick={() => {
-                setResult(null);
-              }}
-            >
-              X
-            </button>
-          )}
-
           {dbKey && (
             <Button
               variant='destructive'
@@ -105,6 +97,19 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
               className='mt-4'
             >
               Remove from history
+            </Button>
+          )}
+          {dbKey && (
+            <Button
+              variant='outline'
+              className='lg:hidden'
+              type='button'
+              onClick={(e) => {
+                e.stopPropagation();
+                setResult(null);
+              }}
+            >
+              Back
             </Button>
           )}
         </motion.div>
