@@ -30,7 +30,7 @@ const items = [
 
 const Introduction = () => {
   return (
-    <section className='flex w-full max-w-prose flex-col items-center gap-3 px-4'>
+    <section className='text-muted-foreground flex w-full max-w-prose flex-col items-center gap-3 px-4'>
       <h2 className='text-center'>Welcome to Mush Finder</h2>
       <RotatingParagraph items={items} height='h-16' gap={5000} />
     </section>
