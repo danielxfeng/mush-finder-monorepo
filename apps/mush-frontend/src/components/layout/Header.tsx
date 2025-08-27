@@ -1,5 +1,6 @@
 import { Wifi, WifiOff } from 'lucide-react';
 
+import Brand from '@/components/layout/Brand';
 import ThemeToggle from '@/components/layout/ThemeToggle';
 import IconBtn from '@/components/shared/IconBtn';
 import { Badge } from '@/components/ui/badge';
@@ -11,7 +12,7 @@ const Header = () => {
   const toggleMode = useAppModeStore.getState().toggleMode;
 
   return (
-    <header className='flex h-14 items-center justify-center'>
+    <header className='border-border bg-background/70 shadow-2xs sticky flex h-16 items-center justify-center border-b backdrop-blur-xl lg:h-20'>
       <div
         data-role='header-container'
         className='mx-1.5 flex w-full max-w-4xl items-center justify-between'
@@ -20,7 +21,8 @@ const Header = () => {
           data-role='header-logo'
           className='flex items-center justify-center gap-1.5 lg:gap-2.5'
         >
-          <h1 className='m-0 text-xl font-bold'>Mush Finder</h1>
+          <h1 className='sr-only'>Mush Finder</h1>
+          <Brand />
 
           <div className='flex flex-col items-start gap-1'>
             <Badge variant='secondary' className='text-xs'>
@@ -32,7 +34,7 @@ const Header = () => {
                 href='https://danielslab.dev'
                 target='_blank'
                 rel='noreferrer'
-                className='hover:underline'
+                className='font-semibold'
               >
                 Daniel's Lab
               </a>

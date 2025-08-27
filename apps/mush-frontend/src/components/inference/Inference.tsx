@@ -47,11 +47,15 @@ const UploadZone = ({ field, setPreview }: UploadZoneProps) => {
       {...getRootProps()}
       className={cn(
         'lg:border-muted-foreground flex w-full max-w-2xl cursor-pointer flex-col items-center justify-center rounded-lg lg:border lg:border-dashed lg:py-10',
-        isDragActive && 'bg-muted/50 border-primary/50',
+        isDragActive && 'bg-primary/10 border-primary/80',
       )}
     >
       <input {...getInputProps()} />
-      {mode === 'online' ? <CloudUpload className='h-12 w-12' /> : <Upload className='h-12 w-12' />}
+      {mode === 'online' ? (
+        <CloudUpload className='text-primary h-12 w-12' />
+      ) : (
+        <Upload className='text-primary h-12 w-12' />
+      )}
       <p className='text-muted-foreground text-xs'>
         {isDragActive
           ? 'Drop the picture here ...'
