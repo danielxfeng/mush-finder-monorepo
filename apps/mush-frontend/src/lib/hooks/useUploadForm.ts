@@ -13,8 +13,11 @@ import { putAndGetHistoryDb } from '@/lib/indexed-db-helper';
 import InferenceEngineFactory from '@/lib/inference-engine/inference-interface';
 import useAppModeStore from '@/lib/stores/app-mode-store';
 
+import useHistoryStore from '../stores/history-store';
+
 const useUploadForm = () => {
   const mode = useAppModeStore((state) => state.mode);
+  const updateHistory = useHistoryStore.getState().updateHistory;
 
   const form = useForm<FileUpload>({
     resolver: zodResolver(FileUploadSchema),
@@ -42,8 +45,8 @@ const useUploadForm = () => {
         taskResponse: validated.data,
         createdAt: new Date(),
       };
-      await putAndGetHistoryDb(newItem);
-      // TODO: add to store
+      const history = await putAndGetHistoryDb(newItem);
+      updateHistory(history);
 
       return validated.data;
     } catch {
