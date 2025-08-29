@@ -18,9 +18,10 @@ const NoModel = ({ setCheck }: NoModelProps) => {
     try {
       setLoading(true);
       const blob = await downloadEdgeModel();
-      await putModelDb({ id: 'edge-model', model: blob });
+      await putModelDb({ id: '7cf4b53e-01e9-4781-9fcb-767174d89979', model: blob });
       setCheck(true);
-    } catch {
+    } catch (error) {
+      console.log('Failed to download the model', error);
       // Sentry.captureException(error);
       toast.error('Failed to download the model. Please try later.');
     } finally {

@@ -57,7 +57,7 @@ const UploadZone = ({ field, setPreview }: UploadZoneProps) => {
       ) : (
         <Upload className='text-primary h-12 w-12' />
       )}
-      <p className='text-muted-foreground text-xs'>
+      <p className='text-muted-foreground mt-2 text-xs'>
         {isDragActive
           ? 'Drop the picture here ...'
           : 'Drag & drop a picture here, or click to select a picture'}

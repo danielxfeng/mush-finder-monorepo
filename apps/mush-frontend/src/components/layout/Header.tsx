@@ -15,20 +15,16 @@ const Header = () => {
     <header className='border-border shadow-2xs sticky top-0 flex h-16 items-center justify-center border-b backdrop-blur-md lg:h-20'>
       <div
         data-role='header-container'
-        className='mx-1.5 flex w-full max-w-4xl items-center justify-between'
+        className='mx-4 flex w-full max-w-4xl items-center justify-between'
       >
-        <div
-          data-role='header-logo'
-          className='flex items-center justify-center gap-1.5 lg:gap-2.5'
-        >
-          <h1 className='sr-only'>Mush Finder</h1>
+        <div data-role='header-logo' className='flex items-center justify-center gap-1'>
           <Brand />
 
-          <div className='flex flex-col items-start gap-1'>
+          <div className='flex h-12 flex-col justify-between gap-1'>
             <Badge variant='secondary' className='text-xs'>
               Beta
             </Badge>
-            <span className='text-muted-foreground ml-1.5 text-xs'>
+            <span className='text-muted-foreground mb-0.5 ml-1.5 text-xs'>
               by{' '}
               <a
                 href='https://danielslab.dev'

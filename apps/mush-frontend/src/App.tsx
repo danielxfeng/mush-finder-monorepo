@@ -4,7 +4,7 @@ import Introduction from '@/components/Introduction';
 
 const App = () => {
   return (
-    <main className='my-4 flex w-full flex-1 flex-col items-center justify-center gap-24 lg:my-12'>
+    <main className='my-4 flex w-full flex-1 flex-col items-center justify-center gap-10 lg:my-12'>
       <Introduction />
       <InferenceEntry />
       <History />
