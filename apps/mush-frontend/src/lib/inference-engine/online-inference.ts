@@ -43,11 +43,11 @@ const gatewayApi: AxiosInstance = axios.create({
 });
 
 const newTaskService = async (task: TaskBody): Promise<AxiosResponse<HashTask>> => {
-  return await gatewayApi.post('/tasks', task);
+  return await gatewayApi.post('/task', task);
 };
 
 const getTaskService = async (hashTask: HashTask): Promise<AxiosResponse<HashTask>> => {
-  return await gatewayApi.get(`/tasks/${hashTask.p_hash}`);
+  return await gatewayApi.get(`/task/${hashTask.p_hash}`);
 };
 
 const waitForNext = async (retry: number): Promise<void> => {

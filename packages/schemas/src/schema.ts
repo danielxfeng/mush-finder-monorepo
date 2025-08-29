@@ -14,7 +14,7 @@ const imgUrlSchema = z.url().describe('URL of the image');
 
 const imgSchema = z
   .file()
-  .min(2 * 1024)
+  .min(10)
   .max(20 * 1024 * 1024)
   .mime(['image/jpeg', 'image/png', 'image/webp']);
 

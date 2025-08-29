@@ -33,7 +33,7 @@ const HistoryItem = ({ item }: { item: HistoryDb }) => {
           setResult(item.taskResponse);
         }}
       >
-        <img className='h-24 w-24 object-cover' alt='History Item' src={preview} />
+        <img className='h-24 w-24 rounded-lg object-cover' alt='History Item' src={preview} />
         <div data-role='history-item-details' className='flex flex-col px-4 text-xs'>
           {results.map((res) => (
             <div key={res.category} className='flex items-center justify-between gap-2'>

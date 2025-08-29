@@ -68,7 +68,8 @@ const getHistoryDb = async (): Promise<HistoryDb[]> => {
       throw new Error(`error on getHistoryDb: ${z.prettifyError(validated.error)}`);
 
     return validated.data;
-  } catch {
+  } catch (error) {
+    console.error('Failed to get history from IndexedDB', error);
     // Sentry.captureException(error);
     await db.history.clear();
     return [];
@@ -77,9 +78,8 @@ const getHistoryDb = async (): Promise<HistoryDb[]> => {
 
 const putAndGetHistoryDb = async (data: HistoryDb): Promise<HistoryDb[]> => {
   const validatedData = HistoryDbSchema.safeParse(data);
-  if (!validatedData.success) {
+  if (!validatedData.success)
     throw new Error(`error on addHistoryDb: ${z.prettifyError(validatedData.error)}`);
-  }
 
   try {
     await db.history.put(validatedData.data);
@@ -94,7 +94,8 @@ const putAndGetHistoryDb = async (data: HistoryDb): Promise<HistoryDb[]> => {
       await db.history.bulkDelete(oldestKeys);
     }
     return await getHistoryDb();
-  } catch {
+  } catch (error) {
+    console.error('Failed to put and get history from IndexedDB', error);
     // Sentry.captureException(error);
     await db.history.clear();
     return [];
