@@ -1,22 +1,47 @@
-import React from 'react';
+import '@/index.css';
+
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './style.css';
-import typescriptLogo from '/typescript.svg';
-import { Header, Counter } from '@repo/ui';
+import { BrowserRouter, Outlet, Route, Routes, useLocation } from 'react-router';
 
-const App = () => (
-  <div>
-    <a href='https://vitejs.dev' target='_blank'>
-      <img src='/vite.svg' className='logo' alt='Vite logo' />
-    </a>
-    <a href='https://www.typescriptlang.org/' target='_blank'>
-      <img src={typescriptLogo} className='logo vanilla' alt='TypeScript logo' />
-    </a>
-    <Header title='Web' />
-    <div className='card'>
-      <Counter />
-    </div>
-  </div>
-);
+import App from '@/App.tsx';
+import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
+import { Toaster } from '@/components/ui/sonner';
+import ErrorBoundary from '@/ErrorBoundary';
 
-createRoot(document.getElementById('app')!).render(<App />);
+/* eslint-disable react-refresh/only-export-components */
+const NotFound = () => {
+  const location = useLocation();
+  throw new Error(`404 Not Found: ${location.pathname}`);
+};
+
+/* eslint-disable react-refresh/only-export-components */
+const Layout = () => {
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+      <Toaster position='top-center' duration={3000} richColors />
+    </>
+  );
+};
+
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  createRoot(rootElement).render(
+    <StrictMode>
+      <ErrorBoundary>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path='/' element={<App />} />
+            </Route>
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </ErrorBoundary>
+    </StrictMode>,
+  );
+}
