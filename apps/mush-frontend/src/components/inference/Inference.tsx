@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { type ControllerRenderProps } from 'react-hook-form';
 
+import Loading from '@/components/shared/Loading';
 import ResultCard from '@/components/shared/ResultCard';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
@@ -76,15 +77,13 @@ const Inference = () => {
     };
   }, [preview]);
 
-  const handleValidSubmit = (data: FileUpload): void => {
-    void (async () => {
-      const res = await form.onSubmit(data);
-      setResult(res);
-    })();
+  const handleValidSubmit = async (data: FileUpload): Promise<void> => {
+    const res = await form.onSubmit(data);
+    setResult(res);
   };
 
   return (
-    <div data-role='inference-form' className='w-full max-w-4xl px-4'>
+    <div data-role='inference-form' className='relative w-full max-w-4xl px-4'>
       <Form {...form}>
         <form
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
@@ -116,9 +115,13 @@ const Inference = () => {
             </Button>
           </div>
         </form>
+
+        {form.formState.isSubmitting && <Loading className='bg-background/70 absolute inset-0' />}
       </Form>
 
-      <ResultCard result={result} setResult={setResult} />
+      <div className='my-4 flex w-full items-center justify-center'>
+        <ResultCard result={result} setResult={setResult} />
+      </div>
     </div>
   );
 };
