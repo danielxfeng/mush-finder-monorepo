@@ -35,10 +35,10 @@ app.use('/api', timeout(5000)); // 5 second timeout
 app.use(
   '/api/*',
   cors({
-    origin: (origin, c: Ctx) => (isProd(c) ? c.env.CORS : '*'),
-    allowHeaders: ['X-Api-Key'],
+    origin: (origin, c: Ctx) => (isProd(c) ? c.env.CORS : 'http://localhost:5173'),
+    allowHeaders: ['Content-Type', 'X-Api-Key'],
     allowMethods: ['POST', 'GET', 'OPTIONS'],
-    exposeHeaders: ['Content-Length', 'Content-Type', 'X-Api-Key'],
+    exposeHeaders: ['Content-Length'],
     maxAge: 600,
     credentials: true,
   }),
