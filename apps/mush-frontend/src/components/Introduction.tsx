@@ -1,4 +1,6 @@
 import RotatingParagraph from '@/components/shared/RotatingParagraph';
+import useAppModeStore from '@/lib/stores/app-mode-store';
+import { Badge } from './ui/badge';
 
 const items = [
   <p>
@@ -29,9 +31,15 @@ const items = [
 ];
 
 const Introduction = () => {
+  const mode = useAppModeStore((state) => state.mode);
   return (
     <section className='text-muted-foreground flex w-full max-w-prose flex-col items-center gap-3 px-4'>
-      <h2 className='text-center'>Welcome to Mush Finder</h2>
+      <div className='flex w-full items-start justify-center gap-2'>
+        <h2 className='text-primary text-center'>Mush Finder</h2>
+        <Badge variant='secondary' className='test-sm'>
+          {mode === 'online' ? 'Online' : 'Edge'}
+        </Badge>
+      </div>
       <RotatingParagraph items={items} height='h-16' gap={5000} />
     </section>
   );

@@ -26,7 +26,7 @@
   --popover-foreground: oklch(0.15 0.01 185);
   --primary: oklch(0.432 0.0513 199.11);
   --primary-foreground: oklch(0.982 0.018 155.826);
-  --secondary: oklch(0.967 0.001 286.375);
+  --secondary: oklch(0.92 0.001 286.375);
   --secondary-foreground: oklch(0.15 0.01 185);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
@@ -161,7 +161,7 @@
     @apply font-pjs;
   }
   h1 {
-    @apply mb-10 text-balance text-4xl font-semibold leading-tight tracking-tight drop-shadow-2xl lg:text-5xl;
+    @apply mb-5 text-balance text-4xl font-semibold leading-tight tracking-tight drop-shadow-2xl lg:text-5xl;
   }
 
   h2 {

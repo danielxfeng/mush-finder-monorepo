@@ -37,9 +37,10 @@ const offlineInference = async (hash: string, file: File): Promise<HashTask> => 
   if (!blob) throw new Error('Model blob not found');
 
   const ort = await import('onnxruntime-web');
+  const buf = await blob.arrayBuffer();
 
   // Load model
-  const model = (session ??= await ort.InferenceSession.create(await blob.arrayBuffer()));
+  const model = (session ??= await ort.InferenceSession.create(buf));
 
   // Preprocess image: create a canvas
   const canvas: OffscreenCanvas | HTMLCanvasElement =
@@ -121,6 +122,7 @@ const offlineInference = async (hash: string, file: File): Promise<HashTask> => 
   if (!validatedResponse.success)
     throw new Error(`Invalid hash task: ${z.prettifyError(validatedResponse.error)}`);
 
+  console.log('Valid hash task:', validatedResponse.data);
   return validatedResponse.data;
 };
 
