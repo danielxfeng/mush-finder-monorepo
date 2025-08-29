@@ -38,7 +38,7 @@ app.use(
     origin: (origin, c: Ctx) => (isProd(c) ? c.env.CORS : '*'),
     allowHeaders: ['X-Api-Key'],
     allowMethods: ['POST', 'GET', 'OPTIONS'],
-    exposeHeaders: ['Content-Length'],
+    exposeHeaders: ['Content-Length', 'Content-Type', 'X-Api-Key'],
     maxAge: 600,
     credentials: true,
   }),
