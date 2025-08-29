@@ -1,3 +1,5 @@
+import { HashTask, PHashSchema, TaskBodySchema, z } from '@repo/schemas';
+import * as Sentry from '@sentry/cloudflare';
 import { Context, Hono } from 'hono';
 import { bodyLimit } from 'hono/body-limit';
 import { cors } from 'hono/cors';
@@ -5,8 +7,6 @@ import { HTTPException } from 'hono/http-exception';
 import { logger } from 'hono/logger';
 import { timeout } from 'hono/timeout';
 
-import { HashTask, PHashSchema, TaskBodySchema, z } from '@repo/schemas';
-import * as Sentry from '@sentry/cloudflare';
 import { getTask, idempotentAddTask, isProd, pingRedis, pingWorkers } from './service';
 
 // env, since worker-configuration.d.ts does not work.
@@ -35,9 +35,9 @@ app.use('/api', timeout(5000)); // 5 second timeout
 app.use(
   '/api/*',
   cors({
-    origin: (origin, c) => (isProd(c) ? c.env.CORS : '*'),
+    origin: (origin, c: Ctx) => (isProd(c) ? c.env.CORS : '*'),
     allowHeaders: ['X-Api-Key'],
-    allowMethods: ['POST', 'GET'],
+    allowMethods: ['POST', 'GET', 'OPTIONS'],
     exposeHeaders: ['Content-Length'],
     maxAge: 600,
     credentials: true,
