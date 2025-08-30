@@ -9,7 +9,7 @@ const Footer = () => {
           <Heart className='h-4 w-4 animate-pulse fill-[var(--primary)] stroke-0' />
           <span>
             by{' '}
-            <a href='https://www.linkedin.com/in/xin-daniel-feng' target='_blank' rel='noreferrer'>
+            <a href='https://danielslab.dev' target='_blank' rel='noreferrer'>
               Daniel's Lab
             </a>
           </span>
