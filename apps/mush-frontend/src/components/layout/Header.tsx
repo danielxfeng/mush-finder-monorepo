@@ -6,6 +6,7 @@ import IconBtn from '@/components/shared/IconBtn';
 import { Badge } from '@/components/ui/badge';
 import useAppMode from '@/lib/hooks/useAppMode';
 import useAppModeStore from '@/lib/stores/app-mode-store';
+import { Link } from 'react-router';
 
 const Header = () => {
   const mode = useAppMode();
@@ -17,14 +18,16 @@ const Header = () => {
         data-role='header-container'
         className='mx-4 flex w-full max-w-4xl items-center justify-between'
       >
-        <div data-role='header-logo' className='flex items-center justify-center gap-1'>
-          <Brand />
+        <div data-role='header-logo' className='flex items-center justify-center gap-1.5'>
+          <Link to='/' className='no-underline hover:opacity-100'>
+            <Brand />
+          </Link>
 
-          <div className='flex h-12 flex-col justify-between gap-1'>
+          <div className='flex h-10 flex-col justify-between gap-1'>
             <Badge variant='secondary' className='text-xs'>
               Beta
             </Badge>
-            <span className='text-muted-foreground mb-0.5 ml-1.5 text-xs'>
+            <span className='text-muted-foreground mb-0.5 ml-1 text-xs'>
               by{' '}
               <a
                 href='https://danielslab.dev'
