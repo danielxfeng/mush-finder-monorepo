@@ -36,7 +36,11 @@ const NoModel = ({ setCheck }: NoModelProps) => {
       data-role='offline-no-model'
       className='flex w-full flex-col items-center justify-center gap-6 px-4'
     >
-      <Button onClick={() => void downloadModelHandler()} disabled={loading}>
+      <Button
+        onClick={() => void downloadModelHandler()}
+        disabled={loading}
+        data-umami-event='edge-model-download'
+      >
         Download
       </Button>
       <p className='text-muted-foreground text-center'>

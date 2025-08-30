@@ -112,7 +112,11 @@ const Inference = () => {
                 <img src={preview} alt='Preview' className='max-h-20 max-w-20 rounded-md' />
               )}
             </div>
-            <Button type='submit' disabled={form.formState.isSubmitting || !form.formState.isValid}>
+            <Button
+              type='submit'
+              disabled={form.formState.isSubmitting || !form.formState.isValid}
+              data-umami-event='inference-submit'
+            >
               Submit
             </Button>
           </div>
