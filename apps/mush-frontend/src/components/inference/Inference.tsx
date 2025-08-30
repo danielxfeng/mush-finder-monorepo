@@ -62,6 +62,11 @@ const UploadZone = ({ field, setPreview }: UploadZoneProps) => {
           ? 'Drop the picture here ...'
           : 'Drag & drop a picture here, or click to select a picture'}
       </p>
+      {mode === 'offline' && (
+        <p className='text-muted-foreground mt-2 text-center text-xs'>
+          At least run the inference service once while online to cache the required files.
+        </p>
+      )}
     </div>
   );
 };

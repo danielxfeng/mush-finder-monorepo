@@ -45,7 +45,14 @@ const Header = () => {
           <IconBtn
             onClick={toggleMode}
             tooltipContent={
-              mode === 'online' ? 'Switch to offline inference' : 'Switch to online inference'
+              mode === 'online' ? (
+                <p className='max-w-xs'>
+                  Switch to offline inference. At least run the inference service once while online
+                  to cache the required files.
+                </p>
+              ) : (
+                'Switch to online inference'
+              )
             }
           >
             {mode === 'online' ? <Wifi /> : <WifiOff />}

@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 
 interface IconBtnProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  tooltipContent: string;
+  tooltipContent: string | React.ReactNode;
 }
 
 const IconBtn = forwardRef<HTMLButtonElement, IconBtnProps>(
