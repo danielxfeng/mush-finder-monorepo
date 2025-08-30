@@ -1,4 +1,5 @@
 import { Wifi, WifiOff } from 'lucide-react';
+import { Link } from 'react-router';
 
 import Brand from '@/components/layout/Brand';
 import ThemeToggle from '@/components/layout/ThemeToggle';
@@ -6,7 +7,6 @@ import IconBtn from '@/components/shared/IconBtn';
 import { Badge } from '@/components/ui/badge';
 import useAppMode from '@/lib/hooks/useAppMode';
 import useAppModeStore from '@/lib/stores/app-mode-store';
-import { Link } from 'react-router';
 
 const Header = () => {
   const mode = useAppMode();
