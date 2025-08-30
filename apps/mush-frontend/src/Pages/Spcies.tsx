@@ -11,7 +11,7 @@ const Species = () => {
           <Card key={mush.className} className='transition hover:shadow-md'>
             <CardHeader>
               <CardTitle className='text-xl'>{mush.className}</CardTitle>
-              <p className='text-muted-foreground text-sm italic'>
+              <p className='text-muted-foreground text-sm'>
                 {mush.English} ({mush.Finnish})
               </p>
             </CardHeader>

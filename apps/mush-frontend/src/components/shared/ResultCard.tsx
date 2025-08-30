@@ -74,10 +74,10 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
                   >
                     <p className='mb-1 flex w-full items-center justify-center'>{item.category}</p>
                     <p className='mb-1 flex w-full items-center justify-center'>{`${(item.confidence * 100).toFixed(2)}%`}</p>
-                    <p className='text-muted-foreground flex w-full items-center justify-center gap-1.5 text-sm italic'>
+                    <p className='text-muted-foreground flex w-full items-center justify-center gap-1.5 text-sm'>
                       {mushItem?.English}
                     </p>
-                    <p className='text-muted-foreground flex w-full items-center justify-center gap-1.5 text-sm italic'>
+                    <p className='text-muted-foreground flex w-full items-center justify-center gap-1.5 text-sm'>
                       {mushItem?.Finnish}
                     </p>
                     <p className='text-muted-foreground col-span-2 flex w-full items-center justify-center text-xs lg:col-span-1'>
