@@ -31,6 +31,10 @@ const items = [
     version that works without internet access.
   </p>,
   <p>
+    To use offline mode, you need to at least run the inference service once while online to cache
+    the required files.
+  </p>,
+  <p>
     It’s normal that the two models return different results for the same image. This is a
     limitation of the current technology.
   </p>,
