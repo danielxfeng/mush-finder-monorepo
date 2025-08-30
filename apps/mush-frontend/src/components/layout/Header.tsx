@@ -13,7 +13,7 @@ const Header = () => {
   const toggleMode = useAppModeStore.getState().toggleMode;
 
   return (
-    <header className='border-border shadow-2xs sticky top-0 flex h-16 items-center justify-center border-b backdrop-blur-md lg:h-20'>
+    <header className='border-border shadow-2xs sticky top-0 z-20 flex h-16 items-center justify-center border-b backdrop-blur-md lg:h-20'>
       <div
         data-role='header-container'
         className='mx-4 flex w-full max-w-4xl items-center justify-between'
