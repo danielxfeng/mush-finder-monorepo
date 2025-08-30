@@ -122,7 +122,6 @@ const offlineInference = async (hash: string, file: File): Promise<HashTask> => 
   if (!validatedResponse.success)
     throw new Error(`Invalid hash task: ${z.prettifyError(validatedResponse.error)}`);
 
-  console.log('Valid hash task:', validatedResponse.data);
   return validatedResponse.data;
 };
 
