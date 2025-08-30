@@ -1,5 +1,6 @@
 import '@/index.css';
 
+import * as Sentry from '@sentry/react';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Outlet, Route, Routes, useLocation } from 'react-router';
@@ -7,10 +8,18 @@ import { BrowserRouter, Outlet, Route, Routes, useLocation } from 'react-router'
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import { Toaster } from '@/components/ui/sonner';
+import { SENTRY_DSN } from '@/constants/constants';
 import ErrorBoundary from '@/ErrorBoundary';
 import App from '@/Pages/App';
 import Species from '@/Pages/Spcies';
 import Terms from '@/Pages/Terms';
+
+if (import.meta.env.PRODUCTION && SENTRY_DSN) {
+  Sentry.init({
+    dsn: SENTRY_DSN,
+    sendDefaultPii: true,
+  });
+}
 
 /* eslint-disable react-refresh/only-export-components */
 const NotFound = () => {

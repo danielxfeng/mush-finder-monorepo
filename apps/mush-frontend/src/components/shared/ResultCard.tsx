@@ -1,4 +1,5 @@
 import type { TaskResponse } from '@repo/schemas';
+import * as Sentry from '@sentry/react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useRef } from 'react';
 import { toast } from 'sonner';
@@ -21,8 +22,8 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
   const removeFromHistory = async (key: string) => {
     try {
       await deleteFromHistoryDb(key);
-    } catch {
-      // Sentry.captureException(error);
+    } catch (error) {
+      Sentry.captureException(error);
       toast.error('Failed to remove from history');
     } finally {
       setResult(null);
