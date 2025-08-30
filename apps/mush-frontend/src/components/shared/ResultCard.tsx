@@ -48,7 +48,7 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
           transition={{ duration: 0.7 }}
           data-set='task-result'
           className={cn(
-            'border-foreground lg:w-xl flex w-full flex-col items-center justify-center gap-2 rounded-xl border p-2 py-4 lg:p-4',
+            'border-foreground lg:w-2xl flex w-full flex-col items-center justify-center gap-2 rounded-xl border p-2 py-4 lg:p-4',
             'bg-background/70 fixed top-1/2 z-20 -translate-y-1/2 backdrop-blur-md',
             'lg:absolute lg:inset-auto lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2',
           )}
