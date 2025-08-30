@@ -7,7 +7,8 @@ import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { MUSH } from '@/constants/constants';
 import useOutsideClick from '@/lib/hooks/useOutsideClick';
-import { deleteFromHistoryDb } from '@/lib/indexed-db-helper';
+import { deleteFromHistoryDb, getHistoryDb } from '@/lib/indexed-db-helper';
+import useHistoryStore from '@/lib/stores/history-store';
 import { cn } from '@/lib/utils';
 
 interface ResultCardProps {
@@ -18,10 +19,12 @@ interface ResultCardProps {
 
 const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
+  const updateHistory = useHistoryStore.getState().updateHistory;
   const { clickOutside, resetClickOutside } = useOutsideClick(ref);
   const removeFromHistory = async (key: string) => {
     try {
       await deleteFromHistoryDb(key);
+      updateHistory(await getHistoryDb());
     } catch (error) {
       Sentry.captureException(error);
       toast.error('Failed to remove from history');
