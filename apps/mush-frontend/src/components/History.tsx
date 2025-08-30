@@ -28,7 +28,7 @@ const HistoryItem = ({ item }: { item: HistoryDb }) => {
     >
       <div
         data-role='history-item'
-        className='hover:bg-muted flex w-full items-center justify-between rounded-xl transition-all duration-200 ease-in-out hover:cursor-pointer lg:w-fit lg:gap-16 lg:p-4'
+        className='hover:bg-muted grid w-full grid-cols-2 items-center rounded-xl transition-all duration-200 ease-in-out hover:cursor-pointer lg:gap-16 lg:p-4'
         onClick={() => {
           setResult(item.taskResponse);
         }}
