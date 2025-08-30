@@ -4,15 +4,21 @@ import useAppModeStore from '@/lib/stores/app-mode-store';
 
 const items = [
   <p>
-    A experimental AI tool to suggest which of{' '}
+    An experimental AI tool to suggest which of{' '}
     <a href='/species' target='_blank' rel='noopener noreferrer'>
       20 common mushrooms
     </a>{' '}
     you might be seeing in Finnish forests.
   </p>,
   <p>
-    Powered by a custom transfer learning model built on Facebook&apos;s ConvNeXt family of CNNs.
+    Just take a picture of the mushroom and let MushFinder do the rest. Try to capture a clear shot
+    with the mushroom centered. No matter the resolution, MushFinder handles it.
   </p>,
+  <p>
+    It’s normal for the inference service to return results even when no mushroom is present in the
+    image, but you can expect a lower confidence score in such cases.
+  </p>,
+  <p>Powered by a custom transfer learning model built on Facebook’s ConvNeXt family of CNNs.</p>,
   <p>
     The model was trained on over 10,000 mushroom images gathered through{' '}
     <a href='https://www.gbif.org' target='_blank' rel='noopener noreferrer'>
@@ -25,8 +31,12 @@ const items = [
     version that works without internet access.
   </p>,
   <p>
-    MushFinder is deployed using a serverless and distributed architecture, with message queues
-    enabling load smoothing, async processing, scalability, and fault tolerance.
+    It’s normal that the two models return different results for the same image. This is a
+    limitation of the current technology.
+  </p>,
+  <p>
+    MushFinder is deployed using a serverless, distributed architecture, with message queues
+    enabling load smoothing, asynchronous processing, scalability, and fault tolerance.
   </p>,
 ];
 
