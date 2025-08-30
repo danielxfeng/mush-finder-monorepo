@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_55_4)">
+<rect width="512" height="512" rx="100" fill="url(#paint0_linear_55_4)"></rect>
+<foreignObject x="137.888" y="149.52" width="236" height="234.48"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(2px);clip-path:url(#bgblur_1_55_4_clip_path);height:100%;width:100%"></div></foreignObject><path data-figma-bg-blur-radius="4" d="M141.888 380V153.52H181.408L266.224 268.736H247.376L330.368 153.52H369.888V380H328.24V200.64L344.352 204.592L258.32 319.2H253.456L169.552 204.592L183.232 200.64V380H141.888Z" fill="#FAFAFA"></path>
+</g>
+<defs>
+<clipPath id="SvgjsClipPath1005" transform="translate(-137.888 -149.52)"><path d="M141.888 380V153.52H181.408L266.224 268.736H247.376L330.368 153.52H369.888V380H328.24V200.64L344.352 204.592L258.32 319.2H253.456L169.552 204.592L183.232 200.64V380H141.888Z"></path>
+</clipPath><linearGradient id="SvgjsLinearGradient1004" x1="164" y1="273" x2="469.5" y2="520" gradientUnits="userSpaceOnUse">
+<stop offset="0.168269" stop-color="#2A595B"></stop>
+<stop offset="1" stop-color="#737373"></stop>
+</linearGradient>
+<clipPath id="SvgjsClipPath1003">
+<rect width="512" height="512" fill="white"></rect>
+</clipPath>
+</defs>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>

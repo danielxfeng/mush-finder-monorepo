@@ -1,4 +1,5 @@
 import { Wifi, WifiOff } from 'lucide-react';
+import { Link } from 'react-router';
 
 import Brand from '@/components/layout/Brand';
 import ThemeToggle from '@/components/layout/ThemeToggle';
@@ -12,19 +13,21 @@ const Header = () => {
   const toggleMode = useAppModeStore.getState().toggleMode;
 
   return (
-    <header className='border-border shadow-2xs sticky top-0 flex h-16 items-center justify-center border-b backdrop-blur-md lg:h-20'>
+    <header className='border-border shadow-2xs sticky top-0 z-20 flex h-16 items-center justify-center border-b backdrop-blur-md lg:h-20'>
       <div
         data-role='header-container'
         className='mx-4 flex w-full max-w-4xl items-center justify-between'
       >
-        <div data-role='header-logo' className='flex items-center justify-center gap-1'>
-          <Brand />
+        <div data-role='header-logo' className='flex items-center justify-center gap-1.5'>
+          <Link to='/' className='no-underline hover:opacity-100'>
+            <Brand />
+          </Link>
 
-          <div className='flex h-12 flex-col justify-between gap-1'>
+          <div className='flex h-10 flex-col justify-between gap-1'>
             <Badge variant='secondary' className='text-xs'>
               Beta
             </Badge>
-            <span className='text-muted-foreground mb-0.5 ml-1.5 text-xs'>
+            <span className='text-muted-foreground mb-0.5 ml-1 text-xs'>
               by{' '}
               <a
                 href='https://danielslab.dev'

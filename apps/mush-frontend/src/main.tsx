@@ -4,11 +4,13 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Outlet, Route, Routes, useLocation } from 'react-router';
 
-import App from '@/App.tsx';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import { Toaster } from '@/components/ui/sonner';
 import ErrorBoundary from '@/ErrorBoundary';
+import App from '@/Pages/App';
+import Species from '@/Pages/Spcies';
+import Terms from '@/Pages/Terms';
 
 /* eslint-disable react-refresh/only-export-components */
 const NotFound = () => {
@@ -37,6 +39,8 @@ if (rootElement) {
           <Routes>
             <Route element={<Layout />}>
               <Route path='/' element={<App />} />
+              <Route path='/species' element={<Species />} />
+              <Route path='/terms' element={<Terms />} />
             </Route>
             <Route path='*' element={<NotFound />} />
           </Routes>
