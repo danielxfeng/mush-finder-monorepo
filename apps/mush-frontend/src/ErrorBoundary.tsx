@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react';
 import type { ReactNode } from 'react';
 import { Component } from 'react';
 
@@ -15,7 +16,7 @@ class ErrorBoundary extends Component<
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
-    console.error('App crashed:', error, info);
+    Sentry.captureException(error, { extra: { ...info } });
   }
 
   render() {

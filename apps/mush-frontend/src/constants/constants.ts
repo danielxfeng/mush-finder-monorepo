@@ -7,6 +7,7 @@ const CLOUDINARY_URL =
   'https://api.cloudinary.com/v1_1/YOUR_CLOUD_NAME';
 const CLOUDINARY_PRESET =
   (import.meta.env.VITE_CLOUDINARY_PRESET as string | undefined) ?? 'ml_default';
+const SENTRY_DSN = (import.meta.env.VITE_SENTRY_DSN as string | undefined) ?? '';
 
 const MAX_HISTORY_ITEMS = 10;
 const MAX_RETRY = 2;
@@ -166,4 +167,5 @@ export {
   MAX_HISTORY_ITEMS,
   MAX_RETRY,
   MUSH,
+  SENTRY_DSN,
 };
