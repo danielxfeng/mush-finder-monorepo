@@ -18,10 +18,22 @@ export default defineConfig({
         'favicon.svg',
         'web-app-manifest-192x192.png',
         'web-app-manifest-512x512.png',
-        'ort-wasm-*.wasm',
       ],
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,webmanifest,jpg,wasm}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,webmanifest,jpg}'],
+        runtimeCaching: [
+          {
+            urlPattern: /.*\.wasm$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'wasm-cache',
+              expiration: {
+                maxEntries: 5,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+              },
+            },
+          },
+        ],
         sourcemap: true,
       },
       devOptions: {
