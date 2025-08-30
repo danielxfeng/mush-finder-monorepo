@@ -18,9 +18,10 @@ export default defineConfig({
         'favicon.svg',
         'web-app-manifest-192x192.png',
         'web-app-manifest-512x512.png',
+        'ort-wasm-*.wasm',
       ],
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,webmanifest,jpg}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,webmanifest,jpg,wasm}'],
         sourcemap: true,
       },
       devOptions: {
