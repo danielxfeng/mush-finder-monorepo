@@ -43,15 +43,8 @@ const offlineInference = async (hash: string, file: File): Promise<HashTask> => 
   const model = (session ??= await ort.InferenceSession.create(buf));
 
   // Preprocess image: create a canvas
-  const canvas: OffscreenCanvas | HTMLCanvasElement =
-    typeof OffscreenCanvas !== 'undefined'
-      ? new OffscreenCanvas(IMG_SIZE, IMG_SIZE)
-      : (() => {
-          const c = document.createElement('canvas');
-          c.width = IMG_SIZE;
-          c.height = IMG_SIZE;
-          return c;
-        })();
+  if (typeof OffscreenCanvas === 'undefined') throw new Error('OffscreenCanvas is not supported');
+  const canvas: OffscreenCanvas = new OffscreenCanvas(IMG_SIZE, IMG_SIZE);
 
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('Failed to get canvas context');
