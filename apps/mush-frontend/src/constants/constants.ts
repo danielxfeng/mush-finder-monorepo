@@ -25,11 +25,11 @@ const MUSH: MushItem[] = [
     English: 'Fly agaric',
     Finnish: 'Punakärpässieni',
     description:
-      'One of the most common poisonous mushrooms, instantly recognizable by its bright red cap with white spots. Often featured in folklore and fairy tales.',
+      'One of the most common poisonous mushrooms, instantly recognizable by its bright red cap with white spots.',
   },
   {
     className: 'Amanita spp.',
-    English: 'Amanita (genus)',
+    English: 'Amanita',
     Finnish: 'Kärpässienet',
     description:
       'A large and diverse genus including many toxic and deadly species such as the death cap and destroying angel, though some are edible.',
@@ -43,38 +43,38 @@ const MUSH: MushItem[] = [
   },
   {
     className: 'Boletus edulis',
-    English: 'Porcini / King bolete',
+    English: 'Porcini',
     Finnish: 'Herkkutatti',
     description:
-      'Classic edible in Finland, highly sought after for its flavor and meaty texture. Can be confused with some inedible or bitter look-alikes such as Tylopilus felleus.',
+      'Classic edible in Finland, highly sought after for its flavor and meaty texture. Can be confused with some inedible such as Tylopilus felleus.',
   },
   {
     className: 'Cantharellus cibarius',
-    English: 'Golden chanterelle',
+    English: 'Chanterelle',
     Finnish: 'Keltavahvero',
     description:
-      'One of the most popular edible mushrooms in Finland, valued for its fruity aroma and golden color. Can be confused with the false chanterelle (Hygrophoropsis aurantiaca).',
+      'One of the most popular edible mushrooms in Finland, valued for its fruity aroma and golden color. Can be confused with the false chanterelle.',
   },
   {
     className: 'Coprinus comatus',
-    English: 'Shaggy ink cap',
+    English: 'Ink cap',
     Finnish: 'Suomumustesieni',
     description:
-      'Edible mushroom with a tall, shaggy white cap that autodigests into black ink with age. Common in grasslands and roadsides, best eaten young before liquefying.',
+      'Edible mushroom with a tall, shaggy white cap that autodigests into black ink with age. Best eaten young before liquefying.',
   },
   {
     className: 'Craterellus cornucopioides',
-    English: 'Black trumpet / Horn of plenty',
+    English: 'Black trumpet',
     Finnish: 'Mustatorvisieni',
     description:
-      'Edible mushroom with a dark, hollow, trumpet-shaped fruiting body. Prized for its strong flavor, though its dark color makes it hard to spot in the forest.',
+      'Edible mushroom with a dark, hollow, trumpet-shaped fruiting body. Its dark color makes it hard to spot in the forest.',
   },
   {
     className: 'Craterellus tubaeformis',
-    English: 'Yellowfoot / Funnel chanterelle',
+    English: 'Yellowfoot',
     Finnish: 'Suppilovahvero',
     description:
-      'Edible mushroom with a gray-brown funnel cap and a yellow, hollow stipe. A very common autumn species in Finland, often fruiting in large groups.',
+      'Edible mushroom with a gray-brown funnel cap and a yellow, hollow stipe. A very common autumn species in Finland.',
   },
   {
     className: 'Hygrophoropsis aurantiaca',
@@ -85,52 +85,52 @@ const MUSH: MushItem[] = [
   },
   {
     className: 'Inocybe spp.',
-    English: 'Fibrecaps (genus Inocybe)',
+    English: 'Fibrecaps',
     Finnish: 'Risakkaat',
     description:
-      'A large genus of small brown mushrooms, many of which are poisonous due to high muscarine content. Generally considered inedible and unsafe, and difficult to identify to species level.',
+      'A large genus of small brown mushrooms. Generally considered inedible and unsafe, and difficult to identify to species level.',
   },
   {
     className: 'Lactarius deliciosus group',
-    English: 'Saffron milk cap group',
-    Finnish: 'Männynleppärousku-ryhmä',
+    English: 'Saffron milkcap',
+    Finnish: 'Männynleppärousku',
     description:
       'Edible, but should be cooked thoroughly. Orange milkcaps exuding carrot-orange latex that often turns green when bruised.',
   },
   {
     className: 'Lactarius rufus',
-    English: 'Rufous / Red hot milkcap',
+    English: 'Red hot milkcap',
     Finnish: 'Kangasrousku',
     description:
-      'A reddish-brown milkcap considered poisonous when raw. In some traditions it is eaten only after thorough boiling or pickling, but generally regarded as inedible or unsafe.',
+      'A reddish-brown milkcap considered poisonous when raw. In some traditions it is eaten only after thorough boiling, but generally regarded as unsafe.',
   },
   {
     className: 'Lactarius trivialis',
     English: 'Trivial milkcap',
     Finnish: 'Haaparousku',
     description:
-      'A common grayish milkcap. Considered poisonous when raw due to its acrid taste, but in Finland and Russia it is traditionally eaten after careful boiling or pickling.',
+      'A common grayish milkcap. Considered poisonous when raw due to its acrid taste, but it is traditionally eaten after careful boiling or pickling.',
   },
   {
     className: 'Leccinum albostipitatum',
-    English: 'Aspen bolete (orange-cap, white-stemmed)',
+    English: 'Aspen bolete',
     Finnish: 'Haavanpunikkitatti',
     description:
       'Edible mushroom with an orange cap and a pale, scabrous stipe. Associates with aspen and poplar; flesh may grayen when cut.',
   },
   {
     className: 'Leccinum versipelle',
-    English: 'Orange birch bolete',
+    English: 'Birch bolete',
     Finnish: 'Koivunpunikkitatti',
     description:
       'Edible mushroom with an orange cap and grey-black scabers on the stipe. Mycorrhizal with birch.',
   },
   {
     className: 'Russula spp.',
-    English: 'Brittlegills (genus Russula)',
+    English: 'Russulas',
     Finnish: 'Haperot',
     description:
-      'A very large genus of brittle-fleshed mushrooms. Some species are excellent edibles while others, such as Russula emetica, are toxic. Identification to species level is often difficult.',
+      'Some species are edibles while others are toxic. Identification to species level is often difficult.',
   },
   {
     className: 'Suillus granulatus',
@@ -148,7 +148,7 @@ const MUSH: MushItem[] = [
   },
   {
     className: 'Suillus variegatus',
-    English: 'Velvet / Variegated bolete',
+    English: 'Velvet bolete',
     Finnish: 'Kangastatti',
     description:
       'Edible mushroom with a dry, finely dotted yellow-brown cap and yellow pores. Typical of dry pine heaths.',

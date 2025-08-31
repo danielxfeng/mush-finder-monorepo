@@ -54,7 +54,6 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
           className={cn(
             'border-foreground lg:w-2xl flex w-full flex-col items-center justify-center gap-2 rounded-xl border p-2 py-4 lg:p-4',
             'bg-background/70 fixed top-1/2 z-20 -translate-y-1/2 backdrop-blur-md',
-            'lg:absolute lg:inset-auto lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2',
           )}
         >
           <h4>The Inference Result:</h4>
@@ -75,7 +74,7 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
                 >
                   <div
                     data-role='task-result-item'
-                    className='grid w-full grid-cols-2 gap-1 lg:grid-cols-1'
+                    className='grid h-full w-full grid-cols-2 content-between gap-1 lg:grid-cols-1'
                   >
                     <p className='mb-1 flex w-full items-center justify-center'>{item.category}</p>
                     <p className='mb-1 flex w-full items-center justify-center'>{`${(item.confidence * 100).toFixed(2)}%`}</p>
@@ -85,7 +84,7 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
                     <p className='text-muted-foreground flex w-full items-center justify-center gap-1.5 text-sm'>
                       {mushItem?.Finnish}
                     </p>
-                    <p className='text-muted-foreground col-span-2 flex w-full items-center justify-center text-xs lg:col-span-1'>
+                    <p className='text-muted-foreground col-span-2 mt-1 flex h-20 w-full items-start justify-center text-xs lg:col-span-1'>
                       {mushItem?.description}
                     </p>
                   </div>
@@ -100,7 +99,7 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
               onClick={() => {
                 void removeFromHistory(dbKey);
               }}
-              className='mt-4'
+              className='lg:mt-4'
             >
               Remove from history
             </Button>
