@@ -28,15 +28,22 @@ const HistoryItem = ({ item }: { item: HistoryDb }) => {
     >
       <div
         data-role='history-item'
-        className='hover:bg-muted grid w-full grid-cols-2 items-center rounded-xl transition-all duration-200 ease-in-out hover:cursor-pointer lg:gap-16 lg:p-4'
+        className='hover:bg-muted grid w-full grid-cols-3 items-center rounded-xl transition-all duration-200 ease-in-out hover:cursor-pointer lg:gap-16 lg:p-4'
         onClick={() => {
           setResult(item.taskResponse);
         }}
       >
-        <img className='h-24 w-24 rounded-lg object-cover' alt='History Item' src={preview} />
-        <div data-role='history-item-details' className='flex flex-col px-4 text-xs'>
+        <img
+          className='col-span-1 h-20 w-20 rounded-lg object-cover'
+          alt='History Item'
+          src={preview}
+        />
+        <div
+          data-role='history-item-details'
+          className='col-span-2 flex w-full flex-col px-4 text-xs'
+        >
           {results.map((res) => (
-            <div key={res.category} className='flex items-center justify-between gap-2'>
+            <div key={res.category} className='flex w-full items-center justify-between gap-2'>
               <span className='font-semibold'>{res.category}</span>
               <span className='text-muted-foreground'>{(res.confidence * 100).toFixed(2)}%</span>
             </div>
@@ -62,7 +69,10 @@ const History = () => {
         <h3 className='m-0 text-sm'>Local history</h3>
         <span>--------</span>
       </div>
-      <div data-role='history-items' className='flex flex-col items-center justify-center gap-4'>
+      <div
+        data-role='history-items'
+        className='flex flex-col items-center justify-center gap-2 p-4'
+      >
         {historyItems.map((item) => (
           <HistoryItem key={item.p_hash} item={item} />
         ))}
