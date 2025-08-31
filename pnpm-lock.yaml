@@ -191,7 +191,7 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: ^0.7.2
-        version: 0.7.2(hono@4.9.4)(zod@4.0.17)
+        version: 0.7.2(hono@4.9.5)(zod@4.0.17)
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
@@ -215,7 +215,7 @@ importers:
         version: link:@upstash/redis/cloudflare
       hono:
         specifier: ^4.9.2
-        version: 4.9.4
+        version: 4.9.5
     devDependencies:
       wrangler:
         specifier: ^4.4.0
@@ -3120,8 +3120,8 @@ packages:
   hoist-non-react-statics@3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
 
-  hono@4.9.4:
-    resolution: {integrity: sha512-61hl6MF6ojTl/8QSRu5ran6GXt+6zsngIUN95KzF5v5UjiX/xnrLR358BNRawwIRO49JwUqJqQe3Rb2v559R8Q==}
+  hono@4.9.5:
+    resolution: {integrity: sha512-aLAVl5/67ifNnoFVxnhR89dpmSLsgwBprw/PT671ASwUpJqmd7Ne8KPTQo37DbRZfgpHaHeZ4bPVUvbOkeedMw==}
     engines: {node: '>=16.9.0'}
 
   html-escaper@2.0.2:
@@ -5567,9 +5567,9 @@ snapshots:
 
   '@floating-ui/utils@0.2.10': {}
 
-  '@hono/zod-validator@0.7.2(hono@4.9.4)(zod@4.0.17)':
+  '@hono/zod-validator@0.7.2(hono@4.9.5)(zod@4.0.17)':
     dependencies:
-      hono: 4.9.4
+      hono: 4.9.5
       zod: 4.0.17
 
   '@hookform/resolvers@5.2.1(react-hook-form@7.62.0(react@19.1.1))':
@@ -7569,7 +7569,7 @@ snapshots:
     dependencies:
       react-is: 16.13.1
 
-  hono@4.9.4: {}
+  hono@4.9.5: {}
 
   html-escaper@2.0.2: {}
 
