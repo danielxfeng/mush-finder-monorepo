@@ -8,7 +8,8 @@ const items = [
     <a href='/species' target='_blank' rel='noopener noreferrer'>
       20 common mushrooms
     </a>{' '}
-    you might be seeing in Finnish forests.
+    you might be seeing in Finnish forests. It is for testing purposes only, and the results may not
+    be accurate. Use at your own risk.
   </p>,
   <p>
     Just take a picture of the mushroom and let MushFinder do the rest. Try to capture a clear shot

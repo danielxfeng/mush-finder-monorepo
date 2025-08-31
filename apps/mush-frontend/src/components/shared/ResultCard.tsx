@@ -58,7 +58,9 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
           )}
         >
           <h4>The Inference Result:</h4>
-          <p className='text-muted-foreground mb-1 text-xs'>⚠️ Information may be inaccurate</p>
+          <p className='text-muted-foreground mb-1 text-xs'>
+            ⚠️ Information may be inaccurate, use at your own risk.
+          </p>
           <div
             data-set='task-result-content'
             className='divide-border grid w-full grid-cols-1 divide-y lg:grid-cols-3 lg:divide-x lg:divide-y-0'
