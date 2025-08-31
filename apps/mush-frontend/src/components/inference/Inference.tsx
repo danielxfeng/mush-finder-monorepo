@@ -112,11 +112,11 @@ const Inference = () => {
             data-role='preview-and-submit'
             className='flex flex-col items-center justify-center gap-4 lg:flex-row lg:justify-between'
           >
-            <div>
-              {preview && (
+            {preview && (
+              <div>
                 <img src={preview} alt='Preview' className='max-h-20 max-w-20 rounded-md' />
-              )}
-            </div>
+              </div>
+            )}
             <Button
               type='submit'
               disabled={form.formState.isSubmitting || !form.formState.isValid}
