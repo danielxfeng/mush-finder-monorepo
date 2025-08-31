@@ -1,18 +1,18 @@
 # MushFinder - Experimental AI for Identifying 20 Common Finnish Forest Mushrooms
 
-Mushroom picking is a popular activity in Finland. However, for many foreigners like me, identifying the right mushrooms in the forest can be confusing.
-
-MushFinder is an experimental tool I built to help users get a rough suggestion of what kind of mushroom they're seeing (not to determine if it's edible), based on a photo taken with their phone. It's powered by a custom CNN model and focuses specifically on mushrooms commonly found in Finnish forests.
-
-![MushFinder](./apps/mush-frontend/public/cover.jpg)
-
 **Don’t expect too much from the results!**
 - Mushrooms are confusing by nature, and sometimes it’s difficult to identify them from just a picture.  
 - It’s also tricky for users to take a clear photo in the wild. Mushrooms are usually small and hidden in the grass, and once you pick them up for a photo, they may already look different from the images in my training set 😄
 
 But I still wanted to put it out there as my very first machine learning project. 
 And honestly, with a decent photo it can perform quite well. 
-The deployment itself was also a big success for me, so I thought it would be fun to share.
+The deployment itself was also intesting I guess, so I thought it would be fun to share.
+
+Mushroom picking is a popular activity in Finland. However, for many foreigners like me, identifying the right mushrooms in the forest can be confusing.
+
+MushFinder is an experimental tool I built to help users get a rough suggestion of what kind of mushroom they're seeing (not to determine if it's edible), based on a photo taken with their phone. It's powered by a custom CNN model and focuses specifically on mushrooms commonly found in Finnish forests.
+
+![MushFinder](./apps/mush-frontend/public/cover.jpg)
 
 Try it for fun: [https://mush.danielslab.dev](https://mush.danielslab.dev)
 
