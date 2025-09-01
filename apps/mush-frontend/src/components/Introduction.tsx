@@ -12,8 +12,9 @@ const items = [
     be accurate. Use at your own risk.
   </p>,
   <p>
-    Just take a picture of the mushroom and let MushFinder do the rest. Try to capture a clear shot
-    with the mushroom centered. No matter the resolution, MushFinder handles it.
+    Try to take a picture of the whole mushroom in its natural environment, keep it centered, and
+    show both the cap and the stem, if possible (Yep, I know it's very difficult). You don’t need a
+    high-end camera, clarity matters more than resolution.
   </p>,
   <p>
     It’s normal for the inference service to return results even when no mushroom is present in the
