@@ -40,6 +40,8 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
     }
   }, [clickOutside, resetClickOutside, setResult]);
 
+  const lowConfidence = !result || result.result[0]?.confidence < 0.8;
+
   return (
     <AnimatePresence>
       {result && (
@@ -57,8 +59,15 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
           )}
         >
           <h4>The Inference Result:</h4>
-          <p className='text-muted-foreground mb-1 text-xs'>
-            ⚠️ Information may be inaccurate, use at your own risk.
+          <p
+            className={cn(
+              'text-muted-foreground mb-1 text-center text-xs',
+              lowConfidence && 'text-destructive text-base',
+            )}
+          >
+            {lowConfidence
+              ? '⚠️ The result is not confident enough. The model may be uncertain about this prediction. Consider taking another photo for better accuracy.'
+              : '⚠️ Information may be inaccurate, use at your own risk.'}
           </p>
           <div
             data-set='task-result-content'
@@ -84,7 +93,7 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
                     <p className='text-muted-foreground flex w-full items-center justify-center gap-1.5 text-sm'>
                       {mushItem?.Finnish}
                     </p>
-                    <p className='text-muted-foreground col-span-2 mt-1 flex h-20 w-full items-start justify-center text-xs lg:col-span-1'>
+                    <p className='text-muted-foreground col-span-2 mt-1 flex w-full items-start justify-center text-xs lg:col-span-1 lg:h-20'>
                       {mushItem?.description}
                     </p>
                   </div>
