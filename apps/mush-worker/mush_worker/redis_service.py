@@ -12,7 +12,7 @@ from mush_worker.models.HashTask_schema import Status as TaskStatus
 from mush_worker.settings import settings
 
 redis_client: Redis | None = None
-SLEEP_INTERVAL = 5 * 60  # 5 minutes
+SLEEP_INTERVAL = 30 * 60  # 30 minutes
 
 
 async def init_redis() -> None:
@@ -62,7 +62,7 @@ async def consume_task(task_handler: TaskHandler) -> None:
     while True:
         popped = await r.blpop(settings.queue_key, timeout=SLEEP_INTERVAL)  # right in / left out, FIFO
         if not popped:
-            await asyncio.sleep(SLEEP_INTERVAL)
+            await asyncio.sleep(1)  # Sleep for 1 second before retrying
             continue
 
         _, p_hash = popped
