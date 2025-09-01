@@ -12,7 +12,7 @@ from mush_worker.models.HashTask_schema import Status as TaskStatus
 from mush_worker.settings import settings
 
 redis_client: Redis | None = None
-SLEEP_INTERVAL = 30 * 60  # 30 minutes
+SLEEP_INTERVAL = 1 * 60  # 1 minute
 
 
 async def init_redis() -> None:
