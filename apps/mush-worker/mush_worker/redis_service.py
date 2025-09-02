@@ -70,19 +70,20 @@ async def consume_task(task_handler: TaskHandler) -> None:
             if not popped:
                 try:
                     await r.ping()
-                    print(f"[{time_stamp}] No tasks available, redis is alive")
+                    print(f"[{time_stamp()}] No tasks available, redis is alive")
                 except Exception:
-                    print(f"[{time_stamp}] Redis is not reachable")
+                    print(f"[{time_stamp()}] Redis is not reachable")
                     await init_redis()
                     r = get_redis()
                 await asyncio.sleep(1)  # Sleep for 1 second before retrying
                 continue  # right in / left out, FIFO
         except Exception as e:
-            print(f"[{time_stamp}] Error while popping from Redis:", e)
+            print(f"[{time_stamp()}] Error while popping from Redis:", e)
             await init_redis()
             r = get_redis()
             continue
 
+        print(f"[{time_stamp()}] Task popped from queue")
         _, p_hash = popped
 
         task_key = f"{settings.tasks_key}:{p_hash}"
