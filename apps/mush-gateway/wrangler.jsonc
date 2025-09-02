@@ -7,7 +7,7 @@
     "nodejs_compat"
   ],
   "vars": {
-    "NODE_ENV": "development",
+    "NODE_ENV": "production",
     "TASKS_KEY": "tasks",
     "QUEUE_KEY": "tasks:queue",
     "RESULT_TTL": 86400 // 1 day
