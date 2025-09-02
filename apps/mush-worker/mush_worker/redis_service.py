@@ -12,7 +12,7 @@ from mush_worker.models.HashTask_schema import Status as TaskStatus
 from mush_worker.settings import settings
 
 redis_client: Redis | None = None
-SLEEP_INTERVAL = 1 * 60  # 1 minute
+SLEEP_INTERVAL = 30  # 30 s
 
 
 async def init_redis() -> None:
@@ -60,9 +60,22 @@ async def consume_task(task_handler: TaskHandler) -> None:
 
     r = get_redis()
     while True:
-        popped = await r.blpop(settings.queue_key, timeout=SLEEP_INTERVAL)  # right in / left out, FIFO
-        if not popped:
-            await asyncio.sleep(1)  # Sleep for 1 second before retrying
+        try:
+            popped = await r.blpop(settings.queue_key, timeout=SLEEP_INTERVAL)
+            if not popped:
+                try:
+                    await r.ping()
+                    print("No tasks available, redis is alive")
+                except Exception:
+                    print("Redis is not reachable")
+                    await init_redis()
+                    r = get_redis()
+                await asyncio.sleep(1)  # Sleep for 1 second before retrying
+                continue  # right in / left out, FIFO
+        except Exception as e:
+            print("Error while popping from Redis:", e)
+            await init_redis()
+            r = get_redis()
             continue
 
         _, p_hash = popped
