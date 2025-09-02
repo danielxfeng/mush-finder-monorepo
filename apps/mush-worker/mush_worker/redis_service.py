@@ -1,4 +1,5 @@
 import asyncio
+import datetime
 import json
 import time
 from typing import Awaitable, Callable
@@ -13,6 +14,10 @@ from mush_worker.settings import settings
 
 redis_client: Redis | None = None
 SLEEP_INTERVAL = 30  # 30 s
+
+
+def time_stamp() -> str:
+    return datetime.datetime.now().isoformat()
 
 
 async def init_redis() -> None:
@@ -65,15 +70,15 @@ async def consume_task(task_handler: TaskHandler) -> None:
             if not popped:
                 try:
                     await r.ping()
-                    print("No tasks available, redis is alive")
+                    print(f"[{time_stamp}] No tasks available, redis is alive")
                 except Exception:
-                    print("Redis is not reachable")
+                    print(f"[{time_stamp}] Redis is not reachable")
                     await init_redis()
                     r = get_redis()
                 await asyncio.sleep(1)  # Sleep for 1 second before retrying
                 continue  # right in / left out, FIFO
         except Exception as e:
-            print("Error while popping from Redis:", e)
+            print(f"[{time_stamp}] Error while popping from Redis:", e)
             await init_redis()
             r = get_redis()
             continue
