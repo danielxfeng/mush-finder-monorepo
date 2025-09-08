@@ -13,6 +13,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { SENTRY_DSN } from '@/constants/constants';
 import ErrorBoundary from '@/ErrorBoundary';
 import App from '@/Pages/App';
+import QA from '@/Pages/QA';
 import Species from '@/Pages/Spcies';
 import Terms from '@/Pages/Terms';
 
@@ -53,6 +54,7 @@ if (rootElement) {
             <Route element={<Layout />}>
               <Route path='/' element={<App />} />
               <Route path='/species' element={<Species />} />
+              <Route path='/questions-and-answers' element={<QA />} />
               <Route path='/terms' element={<Terms />} />
             </Route>
             <Route path='*' element={<NotFound />} />
