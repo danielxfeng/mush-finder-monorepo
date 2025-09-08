@@ -44,8 +44,14 @@ const RotatingParagraph = ({ items, height, gap = 2000 }: RotatingParagraphProps
           animate='center'
           exit='exit'
           transition={{ duration: 0.5, ease: 'easeInOut' }}
+          className='hover:bg-muted relative rounded-lg p-6'
         >
           {child}
+          <div className='absolute bottom-2 right-4 text-xs'>
+            <a target='_blank' rel='noopener noreferrer' href='/questions-and-answers'>
+              More Q&A
+            </a>
+          </div>
         </motion.div>
       </AnimatePresence>
     </div>
