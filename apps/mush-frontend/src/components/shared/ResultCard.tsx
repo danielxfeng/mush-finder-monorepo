@@ -54,75 +54,80 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
           transition={{ duration: 0.7 }}
           data-set='task-result'
           className={cn(
-            'border-foreground lg:w-2xl flex w-full flex-col items-center justify-center gap-2 rounded-xl border p-2 py-4 lg:p-4',
-            'bg-background/70 fixed top-1/2 z-20 -translate-y-1/2 backdrop-blur-md',
+            'lg:border-foreground lg:w-2xl bg-background fixed top-1/2 z-20 flex h-full w-full -translate-y-1/2 flex-col items-center justify-between border p-2 py-4 lg:h-fit lg:rounded-xl lg:p-4',
           )}
         >
-          <h4>The Inference Result:</h4>
-          <p
-            className={cn(
-              'text-muted-foreground mb-1 text-center text-xs',
-              lowConfidence && 'text-destructive text-base',
-            )}
-          >
-            {lowConfidence
-              ? '⚠️ The result is not confident enough. The model may be uncertain about this prediction. Consider taking another photo for better accuracy.'
-              : '⚠️ Information may be inaccurate, use at your own risk.'}
-          </p>
-          <div
-            data-set='task-result-content'
-            className='divide-border grid w-full grid-cols-1 divide-y lg:grid-cols-3 lg:divide-x lg:divide-y-0'
-          >
-            {result.result.map((item) => {
-              const mushItem = MUSH.find((m) => m.className === item.category);
-
-              return (
-                <div
-                  key={item.category}
-                  className='flex w-full flex-1 flex-col items-center justify-center gap-1 p-2 lg:flex-row'
-                >
-                  <div
-                    data-role='task-result-item'
-                    className='grid h-full w-full grid-cols-2 content-between gap-1 lg:grid-cols-1'
-                  >
-                    <p className='mb-1 flex w-full items-center justify-center'>{item.category}</p>
-                    <p className='mb-1 flex w-full items-center justify-center'>{`${(item.confidence * 100).toFixed(2)}%`}</p>
-                    <p className='text-muted-foreground flex w-full items-center justify-center gap-1.5 text-sm'>
-                      {mushItem?.English}
-                    </p>
-                    <p className='text-muted-foreground flex w-full items-center justify-center gap-1.5 text-sm'>
-                      {mushItem?.Finnish}
-                    </p>
-                    <p className='text-muted-foreground col-span-2 mt-1 flex w-full items-start justify-center text-xs lg:col-span-1 lg:h-20'>
-                      {mushItem?.description}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          {dbKey && (
-            <Button
-              variant='destructive'
-              type='button'
-              onClick={() => {
-                void removeFromHistory(dbKey);
-              }}
-              className='lg:mt-4'
+          <div className='flex flex-col items-center justify-center gap-4'>
+            <h4 className='text-center'>The Inference Result:</h4>
+            <p
+              className={cn(
+                'text-muted-foreground mb-2 text-left text-xs',
+                lowConfidence && 'text-destructive',
+              )}
             >
-              Remove from history
+              {lowConfidence
+                ? '⚠️ The result is not confident enough. The model may be uncertain about this prediction. Consider taking another photo for better accuracy.'
+                : '⚠️ Information may be inaccurate, use at your own risk.'}
+            </p>
+            <div
+              data-set='task-result-content'
+              className='divide-border grid w-full grid-cols-1 divide-y lg:grid-cols-3 lg:divide-x lg:divide-y-0'
+            >
+              {result.result.map((item) => {
+                const mushItem = MUSH.find((m) => m.className === item.category);
+
+                return (
+                  <div
+                    key={item.category}
+                    className='flex w-full flex-1 flex-col items-center justify-center gap-1 p-2 lg:flex-row'
+                  >
+                    <div
+                      data-role='task-result-item'
+                      className='grid h-full w-full grid-cols-2 content-between gap-1 lg:grid-cols-1'
+                    >
+                      <p className='mb-1 flex w-full items-center justify-center'>
+                        {item.category}
+                      </p>
+                      <p className='mb-1 flex w-full items-center justify-center'>{`${(item.confidence * 100).toFixed(2)}%`}</p>
+                      <p className='text-muted-foreground flex w-full items-center justify-center gap-1.5 text-sm'>
+                        {mushItem?.English}
+                      </p>
+                      <p className='text-muted-foreground flex w-full items-center justify-center gap-1.5 text-sm'>
+                        {mushItem?.Finnish}
+                      </p>
+                      <p className='text-muted-foreground col-span-2 mt-1 flex w-full items-start justify-center text-xs lg:col-span-1 lg:h-20'>
+                        {mushItem?.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className='flex flex-col items-center justify-center gap-2'>
+            {dbKey && (
+              <Button
+                variant='destructive'
+                type='button'
+                onClick={() => {
+                  void removeFromHistory(dbKey);
+                }}
+                className='lg:mt-4'
+              >
+                Remove from history
+              </Button>
+            )}
+            <Button
+              variant='outline'
+              type='button'
+              onClick={(e) => {
+                e.stopPropagation();
+                setResult(null);
+              }}
+            >
+              Back
             </Button>
-          )}
-          <Button
-            variant='outline'
-            type='button'
-            onClick={(e) => {
-              e.stopPropagation();
-              setResult(null);
-            }}
-          >
-            Back
-          </Button>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
