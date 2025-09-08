@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import { ArrowRight } from 'lucide-react';
 
 import Brand from '@/components/layout/Brand';
 import { Badge } from '@/components/ui/badge';
@@ -43,8 +44,14 @@ const Header = () => {
           data-role='header-actions'
           className='flex items-center justify-center gap-2.5 text-xs'
         >
-          <Button onClick={toggleMode} variant='outline' className='text-xs'>
-            {mode === 'online' ? 'Go Edge' : 'Go Online'}
+          <Button
+            onClick={toggleMode}
+            variant='outline'
+            size='sm'
+            className='text-muted-foreground hover:text-muted-foreground group'
+          >
+            {mode === 'online' ? 'Edge Mode' : 'Online Mode'}
+            <ArrowRight className='ml-1 hidden h-3 w-3 transition-transform duration-200 group-hover:translate-x-1 lg:inline' />
           </Button>
           {/*<ThemeToggle /> */}
         </div>
