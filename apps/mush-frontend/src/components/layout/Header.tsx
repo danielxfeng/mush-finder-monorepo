@@ -43,7 +43,7 @@ const Header = () => {
           data-role='header-actions'
           className='flex items-center justify-center gap-2.5 text-xs'
         >
-          <Button onClick={toggleMode} variant='outline'>
+          <Button onClick={toggleMode} variant='outline' className='text-xs'>
             {mode === 'online' ? 'Go Edge' : 'Go Online'}
           </Button>
           {/*<ThemeToggle /> */}
