@@ -1,10 +1,8 @@
-import { Wifi, WifiOff } from 'lucide-react';
 import { Link } from 'react-router';
 
 import Brand from '@/components/layout/Brand';
-import ThemeToggle from '@/components/layout/ThemeToggle';
-import IconBtn from '@/components/shared/IconBtn';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import useAppMode from '@/lib/hooks/useAppMode';
 import useAppModeStore from '@/lib/stores/app-mode-store';
 
@@ -41,23 +39,14 @@ const Header = () => {
           </div>
         </div>
 
-        <div data-role='header-actions' className='flex items-center justify-center gap-2.5'>
-          <IconBtn
-            onClick={toggleMode}
-            tooltipContent={
-              mode === 'online' ? (
-                <p className='max-w-xs'>
-                  Switch to offline inference. At least run the inference service once while online
-                  to cache the required files.
-                </p>
-              ) : (
-                'Switch to online inference'
-              )
-            }
-          >
-            {mode === 'online' ? <Wifi /> : <WifiOff />}
-          </IconBtn>
-          <ThemeToggle />
+        <div
+          data-role='header-actions'
+          className='flex items-center justify-center gap-2.5 text-xs'
+        >
+          <Button onClick={toggleMode} variant='outline'>
+            {mode === 'online' ? 'Go Edge' : 'Go Online'}
+          </Button>
+          {/*<ThemeToggle /> */}
         </div>
       </div>
     </header>
