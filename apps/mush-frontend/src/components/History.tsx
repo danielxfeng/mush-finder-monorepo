@@ -63,11 +63,15 @@ const History = () => {
   if (historyItems.length === 0) return null;
 
   return (
-    <div data-role='history' className='flex w-full max-w-4xl flex-col items-center justify-center'>
-      <div className='text-muted-foreground m-0 mb-4 flex w-full items-center justify-center gap-3 text-sm'>
-        <span>--------</span>
+    <div
+      data-role='history'
+      className='mt-6 flex w-full max-w-4xl flex-col items-center justify-center'
+    >
+      <div className='flex w-full items-center justify-center px-4'>
+        <hr className='border-border mb-2 w-full border-t lg:w-1/2' />
+      </div>
+      <div className='text-muted-foreground m-0 flex w-full items-center justify-center gap-3 text-sm'>
         <h3 className='m-0 text-sm'>Local history</h3>
-        <span>--------</span>
       </div>
       <div
         data-role='history-items'
