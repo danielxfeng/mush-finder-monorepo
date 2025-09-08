@@ -1,5 +1,5 @@
-import { Link } from 'react-router';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router';
 
 import Brand from '@/components/layout/Brand';
 import { Badge } from '@/components/ui/badge';
