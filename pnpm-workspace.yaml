@@ -5,6 +5,7 @@ packages:
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'
   - esbuild
+  - protobufjs
   - sharp
   - unrs-resolver
   - workerd
