@@ -17,6 +17,7 @@ interface MushItem {
   English: string;
   Finnish: string;
   description: string;
+  link: string;
 }
 
 const MUSH: MushItem[] = [
@@ -26,6 +27,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Punakärpässieni',
     description:
       'One of the most common poisonous mushrooms, instantly recognizable by its bright red cap with white spots.',
+    link: 'https://en.wikipedia.org/wiki/Amanita_muscaria',
   },
   {
     className: 'Amanita spp.',
@@ -33,6 +35,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Kärpässienet',
     description:
       'A large and diverse genus including many toxic and deadly species such as the death cap and destroying angel, though some are edible.',
+    link: 'https://en.wikipedia.org/wiki/Amanita',
   },
   {
     className: 'Amanita virosa',
@@ -40,6 +43,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Valkokärpässieni',
     description:
       'One of the deadliest European mushrooms. A pure white Amanita that causes severe liver and kidney damage if consumed.',
+    link: 'https://en.wikipedia.org/wiki/Amanita_virosa',
   },
   {
     className: 'Boletus edulis',
@@ -47,6 +51,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Herkkutatti',
     description:
       'Classic edible in Finland, highly sought after for its flavor and meaty texture. Can be confused with some inedible such as Tylopilus felleus.',
+    link: 'https://en.wikipedia.org/wiki/Boletus_edulis',
   },
   {
     className: 'Cantharellus cibarius',
@@ -54,6 +59,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Keltavahvero',
     description:
       'One of the most popular edible mushrooms in Finland, valued for its fruity aroma and golden color. Can be confused with the false chanterelle.',
+    link: 'https://en.wikipedia.org/wiki/Cantharellus_cibarius',
   },
   {
     className: 'Coprinus comatus',
@@ -61,6 +67,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Suomumustesieni',
     description:
       'Edible mushroom with a tall, shaggy white cap that autodigests into black ink with age. Best eaten young before liquefying.',
+    link: 'https://en.wikipedia.org/wiki/Coprinus_comatus',
   },
   {
     className: 'Craterellus cornucopioides',
@@ -68,6 +75,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Mustatorvisieni',
     description:
       'Edible mushroom with a dark, hollow, trumpet-shaped fruiting body. Its dark color makes it hard to spot in the forest.',
+    link: 'https://en.wikipedia.org/wiki/Craterellus_cornucopioides',
   },
   {
     className: 'Craterellus tubaeformis',
@@ -75,6 +83,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Suppilovahvero',
     description:
       'Edible mushroom with a gray-brown funnel cap and a yellow, hollow stipe. A very common autumn species in Finland.',
+    link: 'https://en.wikipedia.org/wiki/Craterellus_tubaeformis',
   },
   {
     className: 'Hygrophoropsis aurantiaca',
@@ -82,6 +91,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Valevahvero',
     description:
       'Not poisonous, but considered of low culinary value. Orange in color with decurrent gills, it is often mistaken for the golden chanterelle.',
+    link: 'https://en.wikipedia.org/wiki/Hygrophoropsis_aurantiaca',
   },
   {
     className: 'Inocybe spp.',
@@ -89,6 +99,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Risakkaat',
     description:
       'A large genus of small brown mushrooms. Generally considered inedible and unsafe, and difficult to identify to species level.',
+    link: 'https://en.wikipedia.org/wiki/Inocybe',
   },
   {
     className: 'Lactarius deliciosus group',
@@ -96,6 +107,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Männynleppärousku',
     description:
       'Edible, but should be cooked thoroughly. Orange milkcaps exuding carrot-orange latex that often turns green when bruised.',
+    link: 'https://en.wikipedia.org/wiki/Lactarius_deliciosus',
   },
   {
     className: 'Lactarius rufus',
@@ -103,6 +115,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Kangasrousku',
     description:
       'A reddish-brown milkcap considered poisonous when raw. In some traditions it is eaten only after thorough boiling, but generally regarded as unsafe.',
+    link: 'https://en.wikipedia.org/wiki/Lactarius_rufus',
   },
   {
     className: 'Lactarius trivialis',
@@ -110,6 +123,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Haaparousku',
     description:
       'A common grayish milkcap. Considered poisonous when raw due to its acrid taste, but it is traditionally eaten after careful boiling or pickling.',
+    link: 'https://en.wikipedia.org/wiki/Lactarius_trivialis',
   },
   {
     className: 'Leccinum albostipitatum',
@@ -117,6 +131,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Haavanpunikkitatti',
     description:
       'Edible mushroom with an orange cap and a pale, scabrous stipe. Associates with aspen and poplar; flesh may grayen when cut.',
+    link: 'https://en.wikipedia.org/wiki/Leccinum_albostipitatum',
   },
   {
     className: 'Leccinum versipelle',
@@ -124,6 +139,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Koivunpunikkitatti',
     description:
       'Edible mushroom with an orange cap and grey-black scabers on the stipe. Mycorrhizal with birch.',
+    link: 'https://en.wikipedia.org/wiki/Leccinum_versipelle',
   },
   {
     className: 'Russula spp.',
@@ -131,6 +147,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Haperot',
     description:
       'Some species are edibles while others are toxic. Identification to species level is often difficult.',
+    link: 'https://en.wikipedia.org/wiki/Russula',
   },
   {
     className: 'Suillus granulatus',
@@ -138,6 +155,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Jyvästatti',
     description:
       'Edible mushroom with a slimy cap lacking a ring. Young pores exude milky droplets. Commonly associated with pine.',
+    link: 'https://en.wikipedia.org/wiki/Suillus_granulatus',
   },
   {
     className: 'Suillus luteus',
@@ -145,6 +163,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Voitatti',
     description:
       'Edible mushroom with a brown slimy cap and a persistent ring on the stipe. Typically grows with Scots pine and other pines.',
+    link: 'https://en.wikipedia.org/wiki/Suillus_luteus',
   },
   {
     className: 'Suillus variegatus',
@@ -152,6 +171,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Kangastatti',
     description:
       'Edible mushroom with a dry, finely dotted yellow-brown cap and yellow pores. Typical of dry pine heaths.',
+    link: 'https://en.wikipedia.org/wiki/Suillus_variegatus',
   },
   {
     className: 'Tylopilus felleus',
@@ -159,6 +179,7 @@ const MUSH: MushItem[] = [
     Finnish: 'Sappitatti',
     description:
       'Inedible mushroom with a brown cap, pinkish pores, and a netted stipe. Intensely bitter—spoils mixed dishes despite being non-toxic.',
+    link: 'https://en.wikipedia.org/wiki/Tylopilus_felleus',
   },
 ];
 
