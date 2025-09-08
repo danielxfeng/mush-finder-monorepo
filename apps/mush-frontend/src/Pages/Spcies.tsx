@@ -15,8 +15,13 @@ const Species = () => {
                 {mush.English} ({mush.Finnish})
               </p>
             </CardHeader>
-            <CardContent>
+            <CardContent className='flex flex-col gap-2'>
               <p className='text-sm leading-relaxed'>{mush.description}</p>
+              <p className='text-xs'>
+                <a href={mush.link} target='_blank' rel='noopener noreferrer'>
+                  more info
+                </a>
+              </p>
             </CardContent>
           </Card>
         ))}
