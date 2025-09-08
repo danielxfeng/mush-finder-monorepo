@@ -61,7 +61,7 @@ const ResultCard = ({ result, setResult, dbKey }: ResultCardProps) => {
             <h4 className='text-center'>The Inference Result:</h4>
             <p
               className={cn(
-                'text-muted-foreground mb-1 text-left text-xs',
+                'text-muted-foreground mb-2 text-left text-xs',
                 lowConfidence && 'text-destructive',
               )}
             >
