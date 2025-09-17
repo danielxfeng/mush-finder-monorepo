@@ -73,7 +73,7 @@ importers:
     dependencies:
       '@hookform/resolvers':
         specifier: ^5.2.1
-        version: 5.2.1(react-hook-form@7.62.0(react@19.1.1))
+        version: 5.2.2(react-hook-form@7.62.0(react@19.1.1))
       '@peacechen/react-image-file-resizer':
         specifier: ^1.0.0
         version: 1.0.0
@@ -1219,8 +1219,8 @@ packages:
       hono: '>=3.9.0'
       zod: ^3.25.0 || ^4.0.0
 
-  '@hookform/resolvers@5.2.1':
-    resolution: {integrity: sha512-u0+6X58gkjMcxur1wRWokA7XsiiBJ6aK17aPZxhkoYiK5J+HcTx0Vhu9ovXe6H+dVpO6cjrn2FkJTryXEMlryQ==}
+  '@hookform/resolvers@5.2.2':
+    resolution: {integrity: sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA==}
     peerDependencies:
       react-hook-form: ^7.55.0
 
@@ -5588,7 +5588,7 @@ snapshots:
       hono: 4.9.7
       zod: 4.1.8
 
-  '@hookform/resolvers@5.2.1(react-hook-form@7.62.0(react@19.1.1))':
+  '@hookform/resolvers@5.2.2(react-hook-form@7.62.0(react@19.1.1))':
     dependencies:
       '@standard-schema/utils': 0.3.0
       react-hook-form: 7.62.0(react@19.1.1)
