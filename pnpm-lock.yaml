@@ -157,7 +157,7 @@ importers:
         version: 7.3.0
       zod:
         specifier: ^4.0.17
-        version: 4.1.9
+        version: 4.1.11
       zustand:
         specifier: ^5.0.7
         version: 5.0.8(@types/react@19.1.13)(react@19.1.1)
@@ -191,7 +191,7 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: ^0.7.2
-        version: 0.7.3(hono@4.9.8)(zod@4.1.9)
+        version: 0.7.3(hono@4.9.8)(zod@4.1.11)
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
@@ -227,7 +227,7 @@ importers:
     dependencies:
       zod:
         specifier: ^4.0.17
-        version: 4.1.9
+        version: 4.1.11
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -4774,8 +4774,8 @@ packages:
   zod@3.22.3:
     resolution: {integrity: sha512-EjIevzuJRiRPbVH4mGc8nApb/lVLKVpmUhAaR5R5doKGfAnGJ6Gr3CViAVjP+4FWSxCsybeWQdcgCtbX+7oZug==}
 
-  zod@4.1.9:
-    resolution: {integrity: sha512-HI32jTq0AUAC125z30E8bQNz0RQ+9Uc+4J7V97gLYjZVKRjeydPgGt6dvQzFrav7MYOUGFqqOGiHpA/fdbd0cQ==}
+  zod@4.1.11:
+    resolution: {integrity: sha512-WPsqwxITS2tzx1bzhIKsEs19ABD5vmCVa4xBo2tq/SrV4RNZtfws1EnCWQXM6yh8bD08a1idvkB5MZSBiZsjwg==}
 
   zustand@5.0.8:
     resolution: {integrity: sha512-gyPKpIaxY9XcO2vSMrLbiER7QMAMGOQZVRdJ6Zi782jkbzZygq5GI9nG8g+sMgitRtndwaBSl7uiqC49o1SSiw==}
@@ -5812,10 +5812,10 @@ snapshots:
 
   '@floating-ui/utils@0.2.10': {}
 
-  '@hono/zod-validator@0.7.3(hono@4.9.8)(zod@4.1.9)':
+  '@hono/zod-validator@0.7.3(hono@4.9.8)(zod@4.1.11)':
     dependencies:
       hono: 4.9.8
-      zod: 4.1.9
+      zod: 4.1.11
 
   '@hookform/resolvers@5.2.2(react-hook-form@7.63.0(react@19.1.1))':
     dependencies:
@@ -9421,7 +9421,7 @@ snapshots:
 
   zod@3.22.3: {}
 
-  zod@4.1.9: {}
+  zod@4.1.11: {}
 
   zustand@5.0.8(@types/react@19.1.13)(react@19.1.1):
     optionalDependencies:
