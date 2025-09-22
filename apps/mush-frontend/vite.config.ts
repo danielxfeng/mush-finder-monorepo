@@ -72,6 +72,7 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
+  assetsInclude: ['**/*.wasm'],
   optimizeDeps: { exclude: ['onnxruntime-web'] },
   server: {
     headers: {
