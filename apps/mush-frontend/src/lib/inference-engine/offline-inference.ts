@@ -2,6 +2,7 @@ import { type HashTask, HashTaskSchema, type TaskResponse, z } from '@repo/schem
 import type { AxiosInstance } from 'axios';
 import axios from 'axios';
 import type { InferenceSession } from 'onnxruntime-web';
+import * as ort from 'onnxruntime-web/wasm';
 
 import { EDGE_MODEL_URL, MUSH } from '@/constants/constants';
 import { getModelDb } from '@/lib/indexed-db-helper';
@@ -36,7 +37,6 @@ const offlineInference = async (hash: string, file: File): Promise<HashTask> => 
   const blob = await getModelDb();
   if (!blob) throw new Error('Model blob not found');
 
-  const ort = await import('onnxruntime-web');
   const buf = await blob.arrayBuffer();
 
   // Load model
