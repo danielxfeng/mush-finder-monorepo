@@ -209,7 +209,7 @@ importers:
         version: 24.6.2
       '@upstash/redis':
         specifier: ^1.35.3
-        version: 1.35.4
+        version: 1.35.5
       cloudflare:
         specifier: link:@upstash/redis/cloudflare
         version: link:@upstash/redis/cloudflare
@@ -2428,8 +2428,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@upstash/redis@1.35.4':
-    resolution: {integrity: sha512-WE1ZnhFyBiIjTDW13GbO6JjkiMVVjw5VsvS8ENmvvJsze/caMQ5paxVD44+U68IUVmkXcbsLSoE+VIYsHtbQEw==}
+  '@upstash/redis@1.35.5':
+    resolution: {integrity: sha512-KdLdNAspQGOTGeC++o2LDBzNbMXrfInnmW5nUJfNXabnVh8X4NPrlJ0X4j75cBUShiMpXB3uI1ql4KpFQeqrHQ==}
 
   '@vitejs/plugin-react@5.0.4':
     resolution: {integrity: sha512-La0KD0vGkVkSk6K+piWDKRUyg8Rl5iAIKRMH0vMJI0Eg47bq1eOxmoObAaQG37WMW9MSyk7Cs8EIWwJC1PtzKA==}
@@ -2605,8 +2605,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  baseline-browser-mapping@2.8.12:
-    resolution: {integrity: sha512-vAPMQdnyKCBtkmQA6FMCBvU9qFIppS3nzyXnEM+Lo2IAhG4Mpjv9cCxMudhgV3YdNNJv6TNqXy97dfRVL2LmaQ==}
+  baseline-browser-mapping@2.8.13:
+    resolution: {integrity: sha512-7s16KR8io8nIBWQyCYhmFhd+ebIzb9VKTzki+wOJXHTxTnV6+mFGH3+Jwn1zoKaY9/H9T/0BcKCZnzXljPnpSQ==}
     hasBin: true
 
   baseline-browser-mapping@2.8.9:
@@ -2662,8 +2662,8 @@ packages:
   caniuse-lite@1.0.30001745:
     resolution: {integrity: sha512-ywt6i8FzvdgrrrGbr1jZVObnVv6adj+0if2/omv9cmR2oiZs30zL4DIyaptKcbOrBdOIc74QTMoJvSE2QHh5UQ==}
 
-  caniuse-lite@1.0.30001747:
-    resolution: {integrity: sha512-mzFa2DGIhuc5490Nd/G31xN1pnBnYMadtkyTjefPI7wzypqgCEpeWu9bJr0OnDsyKrW75zA9ZAt7pbQFmwLsQg==}
+  caniuse-lite@1.0.30001748:
+    resolution: {integrity: sha512-5P5UgAr0+aBmNiplks08JLw+AW/XG/SurlgZLgB1dDLfAw7EfRGxIwzPHxdSCGY/BTKDqIVyJL87cCN6s0ZR0w==}
 
   chai@5.3.3:
     resolution: {integrity: sha512-4zNhdJD/iOjSH0A05ea+Ke6MU5mmpQcbQsSOkgdaUMJ9zTlDTD/GYlwohmIE2u0gaxHYiVHEn1Fw9mZ/ktJWgw==}
@@ -2830,8 +2830,8 @@ packages:
   electron-to-chromium@1.5.227:
     resolution: {integrity: sha512-ITxuoPfJu3lsNWUi2lBM2PaBPYgH3uqmxut5vmBxgYvyI4AlJ6P3Cai1O76mOrkJCBzq0IxWg/NtqOrpu/0gKA==}
 
-  electron-to-chromium@1.5.230:
-    resolution: {integrity: sha512-A6A6Fd3+gMdaed9wX83CvHYJb4UuapPD5X5SLq72VZJzxHSY0/LUweGXRWmQlh2ln7KV7iw7jnwXK7dlPoOnHQ==}
+  electron-to-chromium@1.5.232:
+    resolution: {integrity: sha512-ENirSe7wf8WzyPCibqKUG1Cg43cPaxH4wRR7AJsX7MCABCHBIOFqvaYODSLKUuZdraxUTHRE/0A2Aq8BYKEHOg==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -6827,7 +6827,7 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.11.1':
     optional: true
 
-  '@upstash/redis@1.35.4':
+  '@upstash/redis@1.35.5':
     dependencies:
       uncrypto: 0.1.3
 
@@ -7067,7 +7067,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  baseline-browser-mapping@2.8.12: {}
+  baseline-browser-mapping@2.8.13: {}
 
   baseline-browser-mapping@2.8.9: {}
 
@@ -7096,9 +7096,9 @@ snapshots:
 
   browserslist@4.26.3:
     dependencies:
-      baseline-browser-mapping: 2.8.12
-      caniuse-lite: 1.0.30001747
-      electron-to-chromium: 1.5.230
+      baseline-browser-mapping: 2.8.13
+      caniuse-lite: 1.0.30001748
+      electron-to-chromium: 1.5.232
       node-releases: 2.0.23
       update-browserslist-db: 1.1.3(browserslist@4.26.3)
 
@@ -7127,7 +7127,7 @@ snapshots:
 
   caniuse-lite@1.0.30001745: {}
 
-  caniuse-lite@1.0.30001747: {}
+  caniuse-lite@1.0.30001748: {}
 
   chai@5.3.3:
     dependencies:
@@ -7272,7 +7272,7 @@ snapshots:
 
   electron-to-chromium@1.5.227: {}
 
-  electron-to-chromium@1.5.230: {}
+  electron-to-chromium@1.5.232: {}
 
   emoji-regex@8.0.0: {}
 
