@@ -156,7 +156,7 @@ importers:
         specifier: ^7.3.0
         version: 7.3.0
       zod:
-        specifier: ^4.0.17
+        specifier: ^4.1.12
         version: 4.1.12
       zustand:
         specifier: ^5.0.7
