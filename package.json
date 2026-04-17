@@ -11,7 +11,7 @@
     "@eslint/js": "^10.0.0",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@vitejs/plugin-react": "^5.0.0",
+    "@vitejs/plugin-react": "^6.0.0",
     "@vitest/coverage-v8": "^4.0.0",
     "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
